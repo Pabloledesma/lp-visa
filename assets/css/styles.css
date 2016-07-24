@@ -1,0 +1,659 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'CalibriRegular';
+    src: url('fonts/calibri-webfont.eot');
+    src: url('fonts/calibri-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/calibri-webfont.woff') format('woff'),
+         url('fonts/calibri-webfont.ttf') format('truetype'),
+         url('fonts/calibri-webfont.svg#CalibriRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CalibriBold';
+    src: url('fonts/calibrib-webfont.eot');
+    src: url('fonts/calibrib-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/calibrib-webfont.woff') format('woff'),
+         url('fonts/calibrib-webfont.ttf') format('truetype'),
+         url('fonts/calibrib-webfont.svg#CalibriBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CalibriItalic';
+    src: url('fonts/calibrii-webfont.eot');
+    src: url('fonts/calibrii-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/calibrii-webfont.woff') format('woff'),
+         url('fonts/calibrii-webfont.ttf') format('truetype'),
+         url('fonts/calibrii-webfont.svg#CalibriItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#69737b;
+}
+
+select, input{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.canvas_booking {
+	
+	border:#005a9d solid 1px;
+	
+}
+
+.canvas_booking .cWhite {
+	width:450px;
+	background-color: #FFF;
+	clear: both;
+}
+.canvas_booking .cBlue {
+	width:430px;
+	height:25px;
+	padding:10px;
+	background-color: #f2f8fc;
+	clear: both;
+}
+.mc_campos_line {
+	padding:10px;	
+}
+.line_sub {
+	width:140px;
+	margin-right:2px;
+	float:left;
+}
+.line_sub select {
+	width:40px;
+}
+.btnInput {
+	width:210px;
+	height:15px;	
+	float:left;	
+}
+.btnInput input{
+	width:60px;
+	float:left;
+	margin-top:5px;
+}
+.btnInput .tText {
+	width:120px;
+	float:left;
+	font-size:10px;
+}
+
+#inputRegreso {
+	margin-left:20px;	
+}
+
+#destino1 {
+	margin-left:15px;
+	float:left;
+	}
+
+#destino2 {
+	float:left;
+	margin-left:10px;
+	}
+.fila1 {
+	padding-left:15px;
+	}
+.tab_content {
+	clear:both;
+	width:100%;	
+}
+.tab_content .colmenu{
+	width: 76px;
+	float:left;	
+}
+.tab_content .colmenu .tit_origem {
+	background-color:#1d3189;
+	font-size: 16px;
+	width: 104px;
+	color:#FFF;
+	height:46px;
+	line-height: 46px;
+	text-indent: 18px;
+}
+.tab_content .colmenu ul{
+	margin:0;
+	padding:0;
+}
+.tab_content .colmenu li{
+	width: 88px;
+	height: 50px;
+	list-style:none;
+	display:block;
+}
+.tab_content .colmenu li:hover{
+	background-image:url('../images/btn_active.png');
+	background-position:right 16px;
+	background-repeat:no-repeat;
+	width:113px;
+	height:50px;
+	list-style:none;
+	display:block;
+}
+.tab_content .colmenu li.active{
+	background-image:url('../images/btn_active.png');
+	background-position: right 16px;
+	background-repeat:no-repeat;
+	width: 113px;
+	height: 50px;
+	list-style:none;
+	display:block;
+}
+.tab_content .colmenu li a{
+	width: 102px;
+	height: 50px;
+	line-height: 50px;
+	background-repeat:no-repeat;
+	background-position:20px 20px;
+	border:solid 1px #dadada;
+	background-color:#f3f3f3;
+	text-indent: 3px;
+	display:block;
+	color:#696969;
+	font-size: 15px;
+	text-align: center;	
+}
+.tab_content .colmenu li a:hover{
+	border:solid 1px #0060aa;
+	background-color:#0060aa;
+	display:block;
+	color:#fff;	
+}
+.tab_content .colmenu li a.active{
+	border:solid 1px #0060aa;
+	background-color:#0060aa;
+	display:block;
+	color:#fff;	
+}
+
+.tab_content .coltabcontent {
+	width: 362px;
+	float:left;
+	margin-left: 46px;
+}
+.coltabcontent table th, .coltabcontent table td {
+	height: 28px;
+	vertical-align:middle;	
+}
+.coltabcontent table th {
+	color:#004199;
+	font-weight:bold;
+	font-size: 14px;
+}
+.coltabcontent sup {
+	vertical-align: super;
+	font-size: 10px;
+}
+.coltabcontent table td {
+	border-bottom:#e0e2e9 solid 1px;
+	font-size: 14px;
+	color:#000;	
+}
+.coltabcontent table tr td.tex_col2{
+	text-decoration:line-through;
+	text-align:center;
+	padding: 8px 0;
+}
+.coltabcontent table tr td.tex_col3{
+	text-align:center;
+}
+#copacom {
+	float:right;
+	margin: 7px 0px 0 0;
+}	
+#ventas {
+	width:116px;
+	height:90px;
+	float:right;
+	margin:5px 10px 0 0;
+}	
+#call {
+	width:76px;
+	height:90px;
+	float:right;
+	margin:5px 10px 0 0;
+}
+#esposible {
+  width: 960px;
+  height: 100px;
+  float: left;
+  margin-top: 40px;
+}
+#hub {
+  width: 180px;
+  height: 63px;
+  float: left;
+  margin: 5px 0 0 0;
+}
+#copaair {
+  width: 180px;
+  height: 63px;
+  float: right;
+  margin: 5px 0 0 0;
+}
+#contenidopromo{
+   width:490px;
+   height:auto;
+   margin-right:10px;
+   margin-top:20px;
+   float:left;
+}
+
+.contenidoPromo {
+	width: 319px;
+	border-spacing: 0;
+	border:none;
+}
+
+.contenidoPromo tr td { padding:0 }
+.contenidoPromo tr td:first-child { width:196px; font-style: italic; font-size: 16px }
+.social_icon { border:none; }
+.logos_footer { width: 842px; border:none; border-spacing: 0; }
+.logos_footer tr td { padding:0; }
+
+
+
+a:link {
+	color: #1563A8;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #2096DD;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+	color: #1563A8;
+}
+
+#contenedor{
+	width:960px;
+	height:auto;
+	margin:auto;
+	}
+	
+/*Haeder*/
+
+		
+#header_logo{
+	margin-top:27px;
+	margin-left: 40px; 
+	float:left;
+	}
+
+.logos{ 
+	/*float:right;
+	margin-right: 40px;
+	margin-top:26px; */
+}
+	
+/*Middle */
+
+#cuerpo {
+	font-family: Calibri, Helvetica, Arial;
+	font-size:14px;
+	text-align:left;
+	}
+#banner{
+	width:842px;
+    height:318px;
+    alignment-adjust:central;
+    margin: 5px 0 0;
+   	background-repeat: no-repeat;
+	}
+#contenido{
+	width:842px;
+	height:auto;
+/*	background-color:#030;*/
+	float:left	
+	}
+#contenido_tarifas{
+	width:490px;
+	height:auto;
+	margin-right:10px;
+	float:left		
+	}
+#contenido_tarifas h3{
+	font-size: 1.2em;
+	line-height: 23px;
+}
+#contenido_lateral_der{
+	width:330px;
+	height:auto;
+	float:right;
+	margin-left:12px;
+	margin-top:20px;
+}
+.titulos_destacados{
+	font-weight: bold;
+	font-size: 17px;
+	color: #005ca7;
+}
+.titulos_tabla{
+	font-weight: bold;
+	font-size: 14px;
+	color: #1458A6;
+	}
+.tabla_bck_blue{
+	background-color:#e6f5fb;
+	}
+
+/*Footer*/
+
+#legales{
+	width:845px;
+	height:auto;
+	margin:0;
+	float:left;
+	text-align:justify;
+	font-size:10px;
+	font-weight:lighter;
+	} 
+
+#legales p {
+	line-height: 1.2em;
+}
+.derechos{
+	font-size:12px;
+	font-weight:bold}
+
+#pataconectados {
+	width:100%;
+	height:67px;
+	left:-32px;
+	margin:750px 0 500px 0;
+	position:absolute;
+	z-index:2;
+	top: 1298px;
+	}
+#pataconectados_lpcorto {
+	width:100%;
+	height:99px;
+	left:-37px;
+	margin:750px 0 500px 0;
+	position:absolute;
+	z-index:2;
+	top: 479px;
+	}
+#pataconectados_lplargo {
+	width:100%;
+	height:99px;
+	left:1px;
+	margin:750px 0 500px 0;
+	position:absolute;
+	z-index:2;
+	top: 476px;
+	}
+#pataconectados_closed {
+	width:100%;
+	height:105px;
+	left:0;
+	margin:750px 0 500px 0;
+	position:absolute;
+	z-index:2;
+	top: -267px;
+	}
+
+
+#glowingLayout {
+	width: 240px;
+	height:57px;
+	margin-top:3px;
+}
+#glowingLayout span {
+	display: block;
+	float: left;
+	width: 34px;
+	height: 57px;
+	background: url('../../NEW/331/lp%20Peru/lp/images/numbers.png') no-repeat 0px 0px;
+}
+#glowingLayout span.image0 {
+	background-position: -0px 0px;
+}
+#glowingLayout span.image1 {
+	background-position: -34px 0px;
+}
+#glowingLayout span.image2 {
+	background-position: -68px 0px;
+}
+#glowingLayout span.image3 {
+	background-position: -102px 0px;
+}
+#glowingLayout span.image4 {
+	background-position: -136px 0px;
+}
+#glowingLayout span.image5 {
+	background-position: -170px 0px;
+}
+#glowingLayout span.image6 {
+	background-position: -204px 0px;
+}
+#glowingLayout span.image7 {
+	background-position: -238px 0px;
+}
+#glowingLayout span.image8 {
+	background-position: -272px 0px;
+}
+#glowingLayout span.image9 {
+	background-position: -306px 0px;
+}
+#glowingLayout span.imageSep {
+	background-position: -0px 0px;
+	width:10px;
+}
+#glowingLayout span.sec_count {
+	background:none;
+	height:57px;
+	line-height:57px;
+	color:#FFF;
+	width:17px;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#canvas_booking {
+	width: 326px;
+	position: relative;
+	background-color:#f5f5f5;
+	font-size:12px;
+	text-align:left
+}
+#canvas_booking select, #canvas_booking input{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+#canvas_booking select {
+	width:140px;
+}
+#canvas_booking .header {
+	height: 41px;
+	width: 326px;
+}
+#canvas_booking .cWhite {
+	/*background-color: #FFF;*/
+	clear: both;
+	margin-top:10px;
+}
+#canvas_booking .cBlue {
+	/*background-color: #f2f8fc;*/
+	clear: both;
+}
+#canvas_booking .mc_campos_line {
+	padding:8px;
+	display:inline-block;	
+}
+#canvas_booking .line_sub {
+	width:100px;
+	float:left;	
+}
+#canvas_booking .line_sub select {
+	width:45px;
+}
+#canvas_booking .btnInput {
+	width:210px;
+	height:15px;	
+	float:left;
+}
+#canvas_booking input.datepicker{
+	width: 130px;
+	padding:3px;
+	background-image: url('../images/iconcal.jpg');
+	background-repeat: no-repeat;
+	background-position: right 0%;
+	border: 1px solid #999999;
+}
+#canvas_booking #inputSalida {
+	float:left;
+}
+#canvas_booking #inputRegreso {
+	float:left;
+	margin-left:10px;	
+}
+#canvas_booking .btnInput .tText {
+	width:120px;
+	float:left;
+	font-size:10px;
+}
+#canvas_booking .btnSubmit {
+	width:179px;
+	clear:both;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#btnSubmit { cursor:pointer; }
+
+#canvas_booking .pasajeros {
+	font-size:10px;	
+}
+#canvas_booking .pasajeros .lbpas {
+	float:left;
+	width:42px;
+	text-align:center;
+	line-height:11px;
+}
+.error { border-color:red; }
+.error_msj { margin-left:10px; color:red; display:none }
+
+.ui-widget {
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+}
+
+#ui-datepicker-div { display: none; }
+
+a:link {
+	color: #1563A8;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #2096DD;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+	color: #1563A8;
+}
+
+#contenedor{
+	width:960px;
+	height:auto;
+	margin:auto;
+	}
+	
+/*Haeder*/
+
+#cabezote{
+	background-color:#0d304f;
+	width:100%;
+	height:110px;
+		
+}
+
+
+	
+
+/*Footer*/
+
+
+
+#glowingLayout {
+	width: 240px;
+	height:57px;
+	margin-top:3px;
+}
+#glowingLayout span {
+	display: block;
+	float: left;
+	width: 34px;
+	height: 57px;
+	background: url('../../NEW/331/lp%20Peru/lp/images/numbers.png') no-repeat 0px 0px;
+}
+#glowingLayout span.image0 {
+	background-position: -0px 0px;
+}
+#glowingLayout span.image1 {
+	background-position: -34px 0px;
+}
+#glowingLayout span.image2 {
+	background-position: -68px 0px;
+}
+#glowingLayout span.image3 {
+	background-position: -102px 0px;
+}
+#glowingLayout span.image4 {
+	background-position: -136px 0px;
+}
+#glowingLayout span.image5 {
+	background-position: -170px 0px;
+}
+#glowingLayout span.image6 {
+	background-position: -204px 0px;
+}
+#glowingLayout span.image7 {
+	background-position: -238px 0px;
+}
+#glowingLayout span.image8 {
+	background-position: -272px 0px;
+}
+#glowingLayout span.image9 {
+	background-position: -306px 0px;
+}
+#glowingLayout span.imageSep {
+	background-position: -0px 0px;
+	width:10px;
+}
+#glowingLayout span.sec_count {
+	background:none;
+	height:57px;
+	line-height:57px;
+	color:#FFF;
+	width:17px;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}
+
