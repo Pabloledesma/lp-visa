@@ -47,8 +47,15 @@ module.exports = function(grunt) {
 		},
 		browserify: {
 			client: {
-				src: ["app-client.js"],
-				dest: "js/bundle.js"
+				src: [
+					"assets/js/pcfunctions_270616.js",
+					"assets/js/origenes_destinos_fechas_270616.js",
+					"assets/js/jquery.ui.datepicker-es.min.js",
+					"assets/js/jqueryui", 		// v 1.8.24
+					"assets/js/jquery.min.js",  //v 1.7.1
+					"assets/js/s_code.js",
+				],
+				dest: "assets/js/bundle.js"
 			}
 		}, 
 		watch: {
@@ -57,7 +64,7 @@ module.exports = function(grunt) {
 				tasks: ["css"]
 			},
 			scripts: {
-				files: ["app-client.js", "lib/*.js"],
+				files: ["assets/js/*.js"],
 				tasks: ["jshint", "browserify"]
 			}
 		}

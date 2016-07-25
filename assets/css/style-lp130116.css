@@ -70,6 +70,10 @@ a:active {
 	float:right;
 	margin-left:12px;
 }
+.mensajes p{
+	font-size: 18px; 
+	text-align: center;
+}
 .titulos_destacados{
 	font-weight: bold;
 	font-size: 17px;
@@ -301,6 +305,7 @@ a:active {
 	margin-left:auto;
 	margin-right:auto;
 	padding: 10px;
+	cursor:pointer;
 }
 
 #canvas_booking .pasajeros {
