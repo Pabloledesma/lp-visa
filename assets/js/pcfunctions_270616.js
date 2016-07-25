@@ -1,11 +1,17 @@
 // JavaScript Document
 $(function() {
-	
+
+	//Construye el formulario
 	$.each(sysCities.fromcities, function (index, value) {
 		$("#DESDE").append('<option value="'+value.id+'">'+value.name+'</option>');
 	});
 
+	$.each(sysCities.tocities, function (index, value) {
+		$("#HACIA").append('<option value="'+value.id+'">'+value.name+'</option>');
+	});
+
 	var storeFront = '';
+	//Agrega eventos al selector
 	$("#DESDE").on("change", function(){
 		var selected = $(this).val();
 		$.each( sysCities.fromcities, function(index, value){
@@ -26,11 +32,6 @@ $(function() {
 		buscarVuelos( storeFront );
 	});
 
-	$.each(sysCities.tocities, function (index, value) {
-		$("#HACIA").append('<option value="'+value.id+'">'+value.name+'</option>');
-	});
-
-	
 	$.datepicker.setDefaults($.datepicker.regional['es']);
 	var dates = $( "#from, #to" ).datepicker({
 		dateFormat: 'dd/mm/yy',
