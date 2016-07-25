@@ -59,72 +59,7 @@ body {
 .limpiar {
 	clear:both;	
 }
-select, input{
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
-}
-select {
-	width:160px;
-}
-.canvas_booking {
-	height: 345px;
-	width: 450px;
-	border:#005a9d solid 1px;
-	position: relative;
-}
 
-.canvas_booking .cWhite {
-	width:450px;
-	background-color: #FFF;
-	clear: both;
-}
-.canvas_booking .cBlue {
-	width:430px;
-	height:25px;
-	padding:10px;
-	background-color: #f2f8fc;
-	clear: both;
-}
-.mc_campos_line {
-	padding:10px;	
-}
-.line_sub {
-	width:140px;
-	margin-right:2px;
-	float:left;
-}
-.line_sub select {
-	width:40px;
-}
-.btnInput {
-	width:210px;
-	height:15px;	
-	float:left;	
-}
-.btnInput input{
-	width:60px;
-	float:left;
-	margin-top:5px;
-}
-.btnInput .tText {
-	width:120px;
-	float:left;
-	font-size:10px;
-}
-
-#inputRegreso {
-	margin-left:20px;	
-}
-
-#destino1 {
-	margin-left:15px;
-	float:left;
-	}
-
-#destino2 {
-	float:left;
-	margin-left:10px;
-	}
 .fila1 {
 	padding-left:15px;
 	}
