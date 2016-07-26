@@ -385,6 +385,7 @@ select {
 	float:left;
 	margin-left:10px;
 }
+table.table tr th {background: #00579e; color:#fff; text-align: center} 
 
 .alert { color:red; }
 .hidden { display: none; }

@@ -29,7 +29,11 @@ $(function() {
 	});
 
 	$("#btnSubmit").on('click', function(){
-		buscarVuelos( storeFront );
+		if( storeFront ){
+			buscarVuelos( storeFront );
+		} else {
+			alert("Verifique los campos del formulario");
+		}
 	});
 
 	$.datepicker.setDefaults($.datepicker.regional['es']);
