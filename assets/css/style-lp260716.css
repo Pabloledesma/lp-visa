@@ -390,9 +390,14 @@ select {
 	float:left;
 	margin-left:10px;
 }
-table.table tr th {background: #00579e; color:#fff; text-align: center} 
 
-.alert { color:red; }
+#contenido_tarifas > table > tbody > tr > th {background: #00579e; color:#fff; text-align: center} 
+
+.errorMsg { color:red; }
 .hidden { display: none; }
+
+.btn-primary {background: #cba303; color:#fff; border:none; width: 100%}
+.btn-primary:hover, .btn-primary:active {background: #9c6d01;}
+#coupon {width: 100%; margin-bottom: 10px;}
 
 

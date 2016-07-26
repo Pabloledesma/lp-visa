@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -7,10 +7,9 @@
     <title>Aproveche estas tarifas y viaje  ✈</title>
 
     <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/flick/jquery-ui.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/themes/base/jquery-ui.min.css">
-    <link href="../../assets/css/style-lp130116.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/style-lp260716.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/css/estilos_150116.css" rel="stylesheet" type="text/css"/>
     <link rel="apple-touch-icon" sizes="57x57" href="/copa-theme/images/icons/fav/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/copa-theme/images/icons/fav/apple-icon-60x60.png">
@@ -81,7 +80,7 @@
       </div>
       <div class="mensajes">
         <p>Utiliza tu tarjeta VISA y el cupón de descuento para comprar los boletos de tu próximo viaje.</p>
-            <p class="titulos_destacados">Cupón: COPAVISA</p>
+            <p class="titulos_destacados">Código promocional: COPAVISA</p>
         <p>Compra tu boleto del <span class="titulos_destacados">26 de julio al 31 de julio de 2016</span> y viaja del <span class="titulos_destacados">1 de agosto de 2016 al 31 de octubre de 2016.</span></p>
           
       </div>
@@ -106,7 +105,7 @@
                 <td>Tegucigalpa</td>
             </tr>
             <tr>
-                <td>La Haban</td>
+                <td>La Habana</td>
                 <td>Managua</td>
                 <td>Santo Domingo</td>
                 <td>Quito</td>
@@ -172,29 +171,46 @@
                   </div>
                     <div class="cBlue">
                       <div class="mc_campos_line">
-                        <select class="mc_field_1" id="DESDE" name="DESDE">
+                        <select class="mc_field_1" id="DESDE" name="DESDE" v-model="from" required>
                           <option value="0" selected>Desde</option>
+                          <option v-for="from in fromcities" value="{{from.id}}">{{from.name}}</option>
                         </select>
+
                         &nbsp;
-                        <select class="mc_field_1" id="HACIA" name="HACIA">
+                        <select class="mc_field_1" id="HACIA" name="HACIA" v-model="to" required>
                           <option value="0">Hacia</option>
+                          <option v-for="to in tocities" value="{{to.id}}">{{to.name}}</option>
                         </select>
+                        <p class="errorMsg" v-model="msg.lang.city_origin_null"></p>
                       </div>
                     </div>
                     <div class="cWhite">
-                      <div class="mc_campos_line">
-                        <input type="radio" class="" value="Business" name="cabinClass" id="cabinClass" />
-                        Clase ejecutiva&nbsp;&nbsp;
-                        <input type="radio" class="" checked="checked" value="Economy" name="cabinClass" id="cabinClass" />
-                        Clase econ&oacute;mica </div>
+                        <div class="mc_campos_line">
+                            <input type="radio" value="Business" name="cabinClass" id="cabinClass" v-model="bussines" />
+                            Clase ejecutiva&nbsp;&nbsp;
+                            <input type="radio" checked="checked" value="Economy" name="cabinClass" id="cabinClass" v-model="economy" />
+                            Clase económica
+                        </div>
                   </div>
                       <div class="cBlue">
                         <div class="mc_campos_line"> 
                             <span id="inputSalida"> Salida<br />
-                                <input name="from" class="mc_field_2 datepicker" id="from" size="15" />
-                            </span><span id="inputRegreso">Regreso<br />
-                        <input name="to" class="mc_field_2 datepicker" id="to" size="15" />
-                      </span></div>
+                                <input 
+                                    name="from" 
+                                    class="mc_field_2 datepicker" 
+                                    id="from" 
+                                    size="15" 
+                                    v-model="departure_date" />
+                            </span>
+                            <span id="inputRegreso">Regreso<br />
+                                <input 
+                                    name="to" 
+                                    class="mc_field_2 datepicker" 
+                                    id="to" 
+                                    size="15" 
+                                    v-model="return_date"/>
+                            </span>
+                        </div>
                     </div>
                     <div class="cWhite" style="display:none">
                       <div class="mc_campos_line">
@@ -208,62 +224,44 @@
                           <div id="adultPassengers" class="line_sub">
                             <div class="lbpas">Adultos<br />
                               (12+)</div>
-                              <select class="select" id="pasajeros" name="pasajeros">
+                              <select class="select" id="pasajeros" name="pasajeros" v-model="adults">
                                 <option value="1" selected="selected">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
+                                <option value="{{i}}" v-for="i in [2, 3, 4, 5, 6, 7, 8]">{{i}}</option>
                               </select>
                           </div>
                             <div id="pasajerosninos" class="line_sub">
                               <div class="lbpas">Ni&ntilde;os<br />
                                 (2 - 11)</div>
-                                <select class="select" id="cbpasajerosninos" name="cbpasajerosninos">
+                                <select class="select" id="cbpasajerosninos" name="cbpasajerosninos" v-model="childs">
                                   <option value="0" selected="selected">0</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
+                                  <option value="{{i}}" v-for="i in [1, 2, 3, 4, 5, 6, 7, 8]">{{i}}</option>
                                 </select>
                           </div>
-                              <div id="infantesPasajeros" class="line_sub">
-                                <div class="lbpas">Infantes<br />
-                                  (0 - 1)</div>
-                                  <select class="select" id="cbinfantesPasajeros" name="cbinfantesPasajeros">
-                                    <option value="0" selected="selected">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                  </select>
-                          </div>
-                                <div class="limpiar"></div>
-                        </div>
-                  </div>
-                        <div class="cBlue">
-                            <div class="mc_campos_line"> 
-                                <span>Cupón<br />
-                                    <input name="coupon" id="coupon" v-model="coupon" v-on:keyup="validateCoupon()"/><!--COPAVISA-->
-                                </span>
-                                <p v-if="showError" class="alert">Cupón inválido</p>
+                            <div id="infantesPasajeros" class="line_sub">
+                            <div class="lbpas">Infantes<br />
+                              (0 - 1)</div>
+                              <select class="select" id="cbinfantesPasajeros" name="cbinfantesPasajeros" v-model="infants">
+                                <option value="0" selected="selected">0</option>
+                                <option value="{{i}}" v-for="i in [1, 2, 3, 4, 5, 6, 7, 8]">{{i}}</option>
+                              </select>
                             </div>
                         </div>
+                  </div>
+                       
    
                         <div class="cWhite">
                             <div class="btnSubmit">
-                            <a id="btnSubmit"><img width="179" height="36" style="border:none" src="../../assets/images/btn_bookin_ES.jpg" /></a>
+                                <a v-on:click="showCoupon" v-if="couponLink">Tiene un código de descuento?</a>
+                                <div v-if="!couponLink">
+                                    <input 
+                                        name="coupon" 
+                                        id="coupon"
+                                        placeholder="Escriba su cupón..." 
+                                        v-model="coupon" 
+                                        v-on:keyup="validateCoupon()"/>
+                                    <p v-if="showError" class="errorMsg">Código inválido</p>
+                                </div>
+                                <button class="btn btn-primary" id="btnSubmit">Buscar vuelo</button>
                             </div>
                         </div>
             
@@ -305,7 +303,7 @@
             </table>
      
             <p><span class="derechos">Términos y Condiciones</span></p>
-            <p>*Cupón de descuento es válido sólo para pasajeros registrados para recibir ofertas de copa.com. Válido para comprar desde el 26 de julio de 2016 hasta el 31 de julio de 2016 a través de copa.com, nuestro centro de reservaciones, oficinas de Copa Airlines. El viaje debe ser entre el 1 de agosto de 2016 y el 31 de octubre de 2016. El cupón de descuento  sólo aplica a la tarifa neta. Impuestos no están incluidos en el cupón de descuento. Esta oferta no es válida con otras promociones y/o descuentos. Esta oferta no es válida para multi-ciudad. El cupón no aplica en las tarifas Económica Promo, Económica Flex ni Promo Ejecutiva. El cupón de descuento solo aplica a las tarifas Económica Extra y Ejecutiva Flex. Disfrute de los irresistibles destinos que le ofrece Copa Airlines a través del Hub de las Américas en Panamá. Vuelos operados por Copa Airlines y Aerorepública S.A. (operando bajo la marca Copa Airlines Colombia). Para compras presenciales y por call center se aplica tarifa administrativa. Cupón de descuento aplica para vuelos originando desde Guatemala, Guayaquil, La Habana, Lima, Liberia, Montego Bay, Panamá, San Salvador, Santiago de Chile, Santo Domingo, Santa Clara, Santiago de Chile, Tegucigalpa y Quito.</p>
+            <p>*Cupón de descuento es válido sólo para pasajeros registrados para recibir ofertas de copa.com. Válido para comprar desde el 26 de julio de 2016 hasta el 31 de julio de 2016 a través de copa.com, nuestro centro de reservaciones, oficinas de Copa Airlines. El viaje debe ser entre el 1 de agosto de 2016 y el 31 de octubre de 2016. El cupón de descuento sólo aplica a la tarifa neta. Impuestos y cargos por combustible no están incluidos en el cupón de descuento. Esta oferta no es válida con otras promociones y/o descuentos. Esta oferta no es válida para multi-ciudad. El cupón no aplica en las tarifas Económica Promo, Económica Flex ni Promo Ejecutiva. El cupón de descuento solo aplica a las tarifas Económica Extra y Ejecutiva Flex. Disfrute de los irresistibles destinos que le ofrece Copa Airlines a través del Hub de las Américas en Panamá. Vuelos operados por Copa Airlines y Aerorepública S.A. (operando bajo la marca Copa Airlines Colombia). Como medio de pago se pueden utilizar las tarjetas de crédito Visa, entre otras que sean aceptadas por Copa. Para compras presenciales y por call center se aplica tarifa administrativa. Cupón de descuento aplica para vuelos originando desde Guatemala, Guayaquil, La Habana, Lima, Liberia, Montego Bay, Panamá, San Salvador, Santiago de Chile, Santo Domingo, Santa Clara, Tegucigalpa y Quito. Stock mínimo disponible de la promoción: 1 asiento.</p>
 
 
             <p><span class="derechos">Copyright©2016 Copa Airlines, Incorporated.</span> <span class="derechos">    Todos los derechos reservados.        </span><br>
@@ -317,22 +315,18 @@
         </div>
     </div>      
 
-
-   
-
-    
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.min.js"></script> -->
+    <script src="../../assets/js/jquery.ui.datepicker-es.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
-    <script src="../../assets/js/jquery.ui.datepicker-es.js"></script>
     <script src="../../assets/js/s_code.js"></script>
     <script src="../../assets/js/origenes_destinos_fechas_250716.js"></script>
-    <script src="../../assets/js/pcfunctions_270616.js"></script>
-    <script src="../../assets/js/bookingForm.js"></script>
+    <script src="../../assets/js/pcfunctions_260716.js"></script>
+
 
 
     <!--fin contendo-->

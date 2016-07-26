@@ -2,13 +2,13 @@
 $(function() {
 
 	//Construye el formulario
-	$.each(sysCities.fromcities, function (index, value) {
-		$("#DESDE").append('<option value="'+value.id+'">'+value.name+'</option>');
-	});
+	// $.each(sysCities.fromcities, function (index, value) {
+	// 	$("#DESDE").append('<option value="'+value.id+'">'+value.name+'</option>');
+	// });
 
-	$.each(sysCities.tocities, function (index, value) {
-		$("#HACIA").append('<option value="'+value.id+'">'+value.name+'</option>');
-	});
+	// $.each(sysCities.tocities, function (index, value) {
+	// 	$("#HACIA").append('<option value="'+value.id+'">'+value.name+'</option>');
+	// });
 
 	var storeFront = '';
 	//Agrega eventos al selector
@@ -31,24 +31,15 @@ $(function() {
 	$("#btnSubmit").on('click', function(){
 		if( storeFront ){
 			buscarVuelos( storeFront );
-		} else {
-			alert("Verifique los campos del formulario");
-		}
+		} 
 	});
 
 	$.datepicker.setDefaults($.datepicker.regional['es']);
 	var dates = $( "#from, #to" ).datepicker({
 		dateFormat: 'dd/mm/yy',
-		regional: 'es',
 		numberOfMonths: 2,
-		//minDate: +1,
 		minDate: departure_date,
 		maxDate: return_date,
-/*		showOn: "both",
-		buttonImage: "images/iconcal.jpg",
-		buttonImageOnly: true,
-*/		
-
         onSelect: function( selectedDate ) {
             var option = this.id == "from" ? "minDate" : "maxDate",
                 instance = $( this ).data( "datepicker" ),
@@ -74,9 +65,9 @@ $(function() {
 });
 function buscarVuelos( storeFront ) {
 	var lang = $("html").attr('lang');
+	
 	v_FROM = $("#DESDE").val();	
 	if (v_FROM == "" || v_FROM == undefined || v_FROM == 0) {
-
 		switch( lang ){
 			case 'es':
 				alert( msj.es.city_origin_null );
@@ -272,5 +263,41 @@ $(document).ready(function(){
         e.preventDefault();
     });
 		
+});
+
+new Vue({
+    el: '#canvas_booking',
+    data: {
+        coupon: null,
+        showError: false,
+        couponLink: true,
+        lang: 'es',
+        from: 0,
+        to: 0,
+        departure_date: '',
+        return_date: '',
+        adults: 1,
+        childs: 0,
+        infants: 0,
+        business: false,
+        economy: true,
+        fromcities: sysCities.fromcities,
+        tocities: sysCities.tocities,
+        msg: sysCities.msg
+    },
+
+    methods: {
+        validateCoupon: function(){
+            this.showError = this.coupon !== 'COPAVISA';
+        },
+
+        showCoupon: function(){
+        	this.couponLink = !this.couponLink;
+        },
+
+        validateFields: function(){
+
+        }
+    }
 });
 		
