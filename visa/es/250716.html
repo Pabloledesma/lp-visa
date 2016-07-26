@@ -5,8 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex">
     <title>Aproveche estas tarifas y viaje  ✈</title>
-    <link rel="shortcut icon" href="http://www.copaair.com/PublishingImages/favicon.ico" type="image/x-icon" />
+
     <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/flick/jquery-ui.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/themes/base/jquery-ui.min.css">
     <link href="../../assets/css/style-lp130116.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/css/estilos_150116.css" rel="stylesheet" type="text/css"/>
     <link rel="apple-touch-icon" sizes="57x57" href="/copa-theme/images/icons/fav/apple-icon-57x57.png">
@@ -86,21 +89,86 @@
       <div id="contenido">
        <div id="contenido_tarifas">
         
-        <img src="../../assets/images/DORIGENES.jpg">
-        <img src="../../assets/images/DESTINOS.jpg">
+         <table class="table table-striped">
+            <tr>
+                <th colspan="4">Aplica desde las siguientes ciudades</th>
+            </tr>
+            <tr>
+                <td>Guatemala</td>
+                <td>Liberia</td>
+                <td>San Salvador</td>
+                <td>Santiago de los Caballeros</td>
+            </tr>
+            <tr>
+                <td>Guayaquil</td>
+                <td>Montego Bay</td>
+                <td>Santiago de Chile</td>
+                <td>Tegucigalpa</td>
+            </tr>
+            <tr>
+                <td>La Haban</td>
+                <td>Managua</td>
+                <td>Santo Domingo</td>
+                <td>Quito</td>
+            </tr>
+            <tr>
+                <td>Lima</td>
+                <td>Panamá</td>
+                <td>Santa Clara</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        
+        <table class="table table-striped">
+            <tr>
+                <th colspan="4">Hacia las siguientes ciudades</th>
+            </tr>
+            <tr>
+                <td>Bucaramanga</td>
+                <td>La Habana</td>
+                <td>Managua</td>
+                <td>Santa Clara</td>
+            </tr>
+            <tr>
+                <td>Bogotá</td>
+                <td>Lima</td>
+                <td>Panamá</td>
+                <td>Santiago de los Caballeros</td>
+            </tr>
+            <tr>
+                <td>Cúcuta</td>
+                <td>Liberia</td>
+                <td>San Salvador</td>
+                <td>Tegucigalpa</td>
+            </tr>
+            <tr>
+                <td>Guatemala</td>
+                <td>Montego Bay</td>
+                <td>Santiago de Chile</td>
+                <td>Quito</td>
+            </tr>
+            <tr>
+                <td>Guayaquil</td>
+                <td>Medellín</td>
+                <td>Santo Domingo</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+       
 
         </div>
             <div id="contenido_lateral_der">
               <div>
                 <div id="canvas_booking">
-                  <div class="header">
+                    
+                         <div class="header">
                     <img src="../../assets/images/tit_booking_ES.jpg" width="326" height="45"  alt=""/></div>
                   <div class="cWhite">
                     <div class="mc_campos_line">
                       <input name="radIdaVuelta" type="radio" id="radIdaVuelta" value="RT" checked="checked" />
                       Ida y vuelta&nbsp;&nbsp;
                       <input name="radIdaVuelta" type="radio" class="positioner_one" id="radIdaVuelta" value="OW" />
-                      Una V&iacute;a</div>
+                      Una Vía</div>
                   </div>
                     <div class="cBlue">
                       <div class="mc_campos_line">
@@ -184,15 +252,21 @@
                                 <div class="limpiar"></div>
                         </div>
                   </div>
-
+                        <div class="cBlue">
+                            <div class="mc_campos_line"> 
+                                <span>Cupón<br />
+                                    <input name="coupon" id="coupon" v-model="coupon" v-on:keyup="validateCoupon()"/><!--COPAVISA-->
+                                </span>
+                                <p v-if="showError" class="alert">Cupón inválido</p>
+                            </div>
+                        </div>
    
-        <div class="cWhite">
-            <div class="btnSubmit">
-             <input name="coupon" type="hidden" id="coupon" value="COPAVISA" /><!--COPAVISA-->
-            <a id="btnSubmit"><img width="179" height="36" style="border:none" src="../../assets/images/btn_bookin_ES.jpg" /></a>
-            </div>
-        </div>
-                              <div class="limpiar"></div>
+                        <div class="cWhite">
+                            <div class="btnSubmit">
+                            <a id="btnSubmit"><img width="179" height="36" style="border:none" src="../../assets/images/btn_bookin_ES.jpg" /></a>
+                            </div>
+                        </div>
+            
                 </div>
               </div> 
 
@@ -241,25 +315,24 @@
               </strong></p>
 
         </div>
-
-                </div>      
+    </div>      
 
 
    
 
-
-
-    </div>
     
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     <script src="../../assets/js/jquery.ui.datepicker-es.js"></script>
     <script src="../../assets/js/s_code.js"></script>
     <script src="../../assets/js/origenes_destinos_fechas_250716.js"></script>
     <script src="../../assets/js/pcfunctions_270616.js"></script>
-
+    <script src="../../assets/js/bookingForm.js"></script>
 
 
     <!--fin contendo-->

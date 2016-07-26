@@ -37,14 +37,9 @@ var sysCities = {
 		{"name":"Santiago de los Caballeros, DO", "id":"STI"},
 		{"name":"Tegucigalpa, HN", "id":"TGU"},
 		{"name":"Quito, EC", "id":"UIO"}
-    ]
-},
+    ],
 
-departure_date = new Date(2016, 08 - 1, 01),
-return_date = new Date(2016, 10 - 1, 31),
-
-// Mensajes de error para el booking
-msj = {
+	msj: {
 	  en: {
 	        city_origin_null: "Select a city of origin",    
 	        destination_city_null: "Select the destination city",
@@ -66,5 +61,12 @@ msj = {
 	        departure_date: "Selecione a partida",
 	        return_date: "Selecionar data de retorno"
 	  }
-};
+	}
+},
+
+departure_date = new Date(2016, 08 - 1, 01),
+return_date = new Date(2016, 10 - 1, 31);
+
+
+
 
