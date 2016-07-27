@@ -134,26 +134,6 @@ body {
   width: 100px;
   float: left;
 }
-.errorMsg {
-  color: red;
-}
-.hidden {
-  display: none;
-}
-.btn-primary {
-  background: #cba303;
-  color: #fff;
-  border: none;
-  width: 100%;
-}
-.btn-primary:hover,
-.btn-primary:active {
-  background: #9c6d01;
-}
-#coupon {
-  width: 100%;
-  margin-bottom: 10px;
-}
 #canvas_booking .line_sub select {
   width: 45px;
 }
@@ -191,14 +171,25 @@ body {
   padding: 10px;
   cursor: pointer;
 }
-#canvas_booking .pasajeros {
-  font-size: 10px;
+.errorMsg {
+  color: red;
 }
-#canvas_booking .pasajeros .lbpas {
-  float: left;
-  width: 42px;
-  text-align: center;
-  line-height: 11px;
+.hidden {
+  display: none;
+}
+.btn-primary {
+  background: #cba303;
+  color: #fff;
+  border: none;
+  width: 100%;
+}
+.btn-primary:hover,
+.btn-primary:active {
+  background: #9c6d01;
+}
+#coupon {
+  width: 100%;
+  margin-bottom: 10px;
 }
 .ui-widget {
   font-family: Helvetica, Arial, sans-serif;
@@ -214,27 +205,6 @@ input {
 }
 select {
   width: 160px;
-}
-.canvas_booking {
-  height: 345px;
-  width: 450px;
-  border: #005a9d solid 1px;
-  position: relative;
-}
-.canvas_booking .cWhite {
-  width: 450px;
-  background-color: #FFF;
-  clear: both;
-}
-.canvas_booking .cBlue {
-  width: 430px;
-  height: 25px;
-  padding: 10px;
-  background-color: #f2f8fc;
-  clear: both;
-}
-.mc_campos_line {
-  padding: 10px;
 }
 .line_sub {
   width: 140px;

@@ -130,8 +130,53 @@ body {
 	.line_sub {
 		width:100px;
 		float:left;	
+
+		select {
+			width:45px;
+		}
 	}
-}
+	
+	.btnInput {
+		width:210px;
+		height:15px;	
+		float:left;
+	}
+	
+	input.datepicker{
+		width: 130px;
+		padding:3px;
+		background-image: url('../images/iconcal.jpg');
+		background-repeat: no-repeat;
+		background-position: right 0%;
+		border: 1px solid #999999;
+	}
+	
+	#inputSalida {
+		float:left;
+	}
+	
+	#inputRegreso {
+		float:left;
+		margin-left:10px;	
+	}
+	.btnInput .tText {
+		width:120px;
+		float:left;
+		font-size:10px;
+	}
+	
+	.btnSubmit {
+		width:179px;
+		clear:both;
+		margin-top:10px;
+		margin-left:auto;
+		margin-right:auto;
+		padding: 10px;
+		cursor:pointer;
+	}
+
+	
+} 
 
 .errorMsg { color:red; }
 .hidden { display: none; }
@@ -140,54 +185,9 @@ body {
 .btn-primary:hover, .btn-primary:active {background: #9c6d01;}
 #coupon {width: 100%; margin-bottom: 10px;}
 
-#canvas_booking .line_sub select {
-	width:45px;
-}
-#canvas_booking .btnInput {
-	width:210px;
-	height:15px;	
-	float:left;
-}
-#canvas_booking input.datepicker{
-	width: 130px;
-	padding:3px;
-	background-image: url('../images/iconcal.jpg');
-	background-repeat: no-repeat;
-	background-position: right 0%;
-	border: 1px solid #999999;
-}
-#canvas_booking #inputSalida {
-	float:left;
-}
-#canvas_booking #inputRegreso {
-	float:left;
-	margin-left:10px;	
-}
-#canvas_booking .btnInput .tText {
-	width:120px;
-	float:left;
-	font-size:10px;
-}
 
-#canvas_booking .btnSubmit {
-	width:179px;
-	clear:both;
-	margin-top:10px;
-	margin-left:auto;
-	margin-right:auto;
-	padding: 10px;
-	cursor:pointer;
-}
 
-#canvas_booking .pasajeros {
-	font-size:10px;	
-}
-#canvas_booking .pasajeros .lbpas {
-	float:left;
-	width:42px;
-	text-align:center;
-	line-height:11px;
-}
+
 .ui-widget {
 font-family: Helvetica, Arial, sans-serif;
 font-size: 12px;
@@ -202,28 +202,7 @@ select, input{
 select {
 	width:160px;
 }
-.canvas_booking {
-	height: 345px;
-	width: 450px;
-	border:#005a9d solid 1px;
-	position: relative;
-}
 
-.canvas_booking .cWhite {
-	width:450px;
-	background-color: #FFF;
-	clear: both;
-}
-.canvas_booking .cBlue {
-	width:430px;
-	height:25px;
-	padding:10px;
-	background-color: #f2f8fc;
-	clear: both;
-}
-.mc_campos_line {
-	padding:10px;	
-}
 .line_sub {
 	width:140px;
 	margin-right:2px;
