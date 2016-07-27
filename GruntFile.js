@@ -13,27 +13,17 @@ module.exports = function(grunt) {
 		less: {
 			production: {
 				files: {
-					"css/style.css": ["*.less"]
+					"assets/css/style.css": ["assets/less/*.less"]
 				}
 			}
 		},
 		autoprefixer: {
 			single_file: {
-				src: "css/style.css",
-				dest: "css/style.css"
+				src: "assets/css/style.css",
+				dest: "assets/css/style.css"
 			}
 		},
-		 sass: {
-		    dist: {
-		      files: [{
-		        expand: true,
-		        cwd: 'styles',
-		        src: ['*.scss'],
-		        dest: 'css',
-		        ext: '.css'
-		      }]
-		    }
-		 },
+		 
 		cssmin: {
 		  target: {
 		    files: [{
@@ -60,7 +50,7 @@ module.exports = function(grunt) {
 		}, 
 		watch: {
 			css: {
-				files: ["*.less", "*.sass"],
+				files: ["assets/less/*.less"],
 				tasks: ["css"]
 			},
 			scripts: {
@@ -75,10 +65,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-autoprefixer");
 	grunt.loadNpmTasks("grunt-browserify");
 	grunt.loadNpmTasks("grunt-contrib-watch");
-	grunt.loadNpmTasks("grunt-contrib-sass");
+	//grunt.loadNpmTasks("grunt-contrib-sass");
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 
-	grunt.registerTask("css", ["less", "sass", "autoprefixer" ]);
+	grunt.registerTask("css", ["less", "autoprefixer" ]);
 	grunt.registerTask("js", ["browserify"]);
 
 	grunt.registerTask("default", ["jshint", "css", "js"]);

@@ -1,0 +1,377 @@
+@font: Arial, Helvetica, sans-serif;
+@textColor: #69737b;
+@calibri: Calibri, Helvetica, Arial;
+
+a:link {
+	color: #1563A8;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #2096DD;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
+
+#contenedor{
+	width:960px;
+	height:auto;
+	margin:auto;
+	}
+
+body {
+	margin:0;
+	font-family:@font;
+	font-size:12px;
+	color:@textColor;
+}
+
+#cuerpo {
+	width:845px;
+	height:auto;
+	margin:0 auto;
+	font-family: @calibri;
+	font-size:14px;
+	text-align:left;
+	position: relative;
+	top:-11px;
+}
+#banner{
+	width:842px;
+    height:318px;
+    alignment-adjust:central;
+    margin: 5px 0 0;
+   	background-repeat: no-repeat;
+}
+
+
+#contenidopromo{
+   width:490px;
+   height:auto;
+   margin-right:10px;
+   float:left;
+}
+
+#contenido{
+	width:842px;
+	height:auto;
+	float:left	
+}
+
+#contenido_tarifas{
+	width:490px;
+	height:auto;
+	margin-right:10px;
+	float:left		
+}
+
+
+
+#contenido_tarifas > table > tbody > tr > th {background: #00579e; color:#fff; text-align: center} 
+
+
+#contenido_lateral_der{
+	width:330px;
+	height:auto;
+	float:right;
+	margin-left:12px;
+}
+
+.mensajes p{
+	font-size: 18px; 
+	text-align: center;
+}
+
+.titulos_destacados{
+	font-weight: bold;
+	font-size: 17px;
+	color: #005ca7;
+}
+
+/******* FORM ********/
+
+#canvas_booking {
+	height: auto;
+	width: 326px;
+	position: relative;
+	background-color:#f5f5f5;
+	font-size:12px;
+	text-align:left;
+
+	select, input {
+		font-family:@font;
+		font-size:11px;
+	}
+
+	select {width:140px;}
+
+	.header {
+		height: 41px;
+		width: 326px;
+	}
+	
+	.cWhite {
+		clear: both;
+		margin-top:10px;
+	}
+
+	.cBlue { clear: both;}
+
+	.mc_campos_line {
+		padding:8px;
+		display:inline-block;	
+	}
+
+	.line_sub {
+		width:100px;
+		float:left;	
+	}
+}
+
+.errorMsg { color:red; }
+.hidden { display: none; }
+
+.btn-primary {background: #cba303; color:#fff; border:none; width: 100%}
+.btn-primary:hover, .btn-primary:active {background: #9c6d01;}
+#coupon {width: 100%; margin-bottom: 10px;}
+
+#canvas_booking .line_sub select {
+	width:45px;
+}
+#canvas_booking .btnInput {
+	width:210px;
+	height:15px;	
+	float:left;
+}
+#canvas_booking input.datepicker{
+	width: 130px;
+	padding:3px;
+	background-image: url('../images/iconcal.jpg');
+	background-repeat: no-repeat;
+	background-position: right 0%;
+	border: 1px solid #999999;
+}
+#canvas_booking #inputSalida {
+	float:left;
+}
+#canvas_booking #inputRegreso {
+	float:left;
+	margin-left:10px;	
+}
+#canvas_booking .btnInput .tText {
+	width:120px;
+	float:left;
+	font-size:10px;
+}
+
+#canvas_booking .btnSubmit {
+	width:179px;
+	clear:both;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 10px;
+	cursor:pointer;
+}
+
+#canvas_booking .pasajeros {
+	font-size:10px;	
+}
+#canvas_booking .pasajeros .lbpas {
+	float:left;
+	width:42px;
+	text-align:center;
+	line-height:11px;
+}
+.ui-widget {
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+}
+
+#ui-datepicker-div { display: none; }
+
+select, input{
+	font-family:@font;
+	font-size:12px;
+}
+select {
+	width:160px;
+}
+.canvas_booking {
+	height: 345px;
+	width: 450px;
+	border:#005a9d solid 1px;
+	position: relative;
+}
+
+.canvas_booking .cWhite {
+	width:450px;
+	background-color: #FFF;
+	clear: both;
+}
+.canvas_booking .cBlue {
+	width:430px;
+	height:25px;
+	padding:10px;
+	background-color: #f2f8fc;
+	clear: both;
+}
+.mc_campos_line {
+	padding:10px;	
+}
+.line_sub {
+	width:140px;
+	margin-right:2px;
+	float:left;
+}
+.line_sub select {
+	width:40px;
+}
+.btnInput {
+	width:210px;
+	height:15px;	
+	float:left;	
+}
+.btnInput input{
+	width:60px;
+	float:left;
+	margin-top:5px;
+}
+.btnInput .tText {
+	width:120px;
+	float:left;
+	font-size:10px;
+}
+
+#inputRegreso {
+	margin-left:20px;	
+}
+
+#destino1 {
+	margin-left:15px;
+	float:left;
+	}
+
+#destino2 {
+	float:left;
+	margin-left:10px;
+}
+
+/** TABS **/
+
+.tab_content {
+	clear:both;
+	width:100%;	
+	
+	.colmenu {
+		width: 76px;
+		float:left;	
+
+		.tit_origem {
+			background-color:#1d3189;
+			font-size: 16px;
+			width: 104px;
+			color:#FFF;
+			height:46px;
+			line-height: 46px;
+			text-indent: 18px;
+		}
+
+		ul {margin:0; padding:0;}
+		
+		li {
+			width: 88px;
+			height: 50px;
+			list-style:none;
+			display:block;
+
+			a {
+				width: 102px;
+				height: 50px;
+				line-height: 50px;
+				background-repeat:no-repeat;
+				background-position:20px 20px;
+				border:solid 1px #dadada;
+				background-color:#f3f3f3;
+				text-indent: 3px;
+				display:block;
+				color:#696969;
+				font-size: 15px;
+				text-align: center;	
+			}
+
+			a:hover{
+				border:solid 1px #0060aa;
+				background-color:#0060aa;
+				display:block;
+				color:#fff;	
+			}
+			a.active{
+				border:solid 1px #0060aa;
+				background-color:#0060aa;
+				display:block;
+				color:#fff;	
+			}
+
+		}
+
+		li:hover{
+			background-image:url('../images/btn_active.png');
+			background-position:right 16px;
+			background-repeat:no-repeat;
+			width:113px;
+			height:50px;
+			list-style:none;
+			display:block;
+		}
+
+		li.active{
+			background-image:url('../images/btn_active.png');
+			background-position: right 16px;
+			background-repeat:no-repeat;
+			width: 113px;
+			height: 50px;
+			list-style:none;
+			display:block;
+		}
+	}
+	
+}
+
+.tab_content .coltabcontent {
+	width: 362px;
+	float:left;
+	margin-left: 46px;
+}
+.coltabcontent table th, .coltabcontent table td {
+	height: 28px;
+	vertical-align:middle;	
+}
+.coltabcontent table th {
+	color:#004199;
+	font-weight:bold;
+	font-size: 14px;
+}
+.coltabcontent sup {
+	vertical-align: super;
+	font-size: 10px;
+}
+.coltabcontent table td {
+	border-bottom:#e0e2e9 solid 1px;
+	font-size: 14px;
+	color:#000;	
+}
+.coltabcontent table tr td.tex_col2{
+	text-decoration:line-through;
+	text-align:center;
+	padding: 8px 0;
+}
+.coltabcontent table tr td.tex_col3{
+	text-align:center;
+}
+
