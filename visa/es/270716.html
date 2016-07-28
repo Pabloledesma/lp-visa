@@ -6,12 +6,9 @@
     <meta name="robots" content="noindex">
     <title>Aproveche estas tarifas y viaje  ✈</title>
 
-    <!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/flick/jquery-ui.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
 
-    <!--Temporalmente -->
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/themes/base/jquery-ui.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/flick/jquery-ui.css">
     <link href="../../assets/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="apple-touch-icon" sizes="57x57" href="/copa-theme/images/icons/fav/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/copa-theme/images/icons/fav/apple-icon-60x60.png">
@@ -46,25 +43,25 @@
 
     <div id="cabezote"> 
         <div id="header_logo">
-        <a href="http://www.copaair.com?d1=flashSale-VISA-250716-cm" target="_blank">
+        <a href="http://www.copaair.com?d1=flashSale-VISA-270716-cm" target="_blank">
         <img src="../../assets/images/logos/LOGO-COPA.png">
         </a>
         </div>
         <div class="logos">
 
         <div id="call">
-            <a href="https://www.copaair.com/es/web/gs/centro-de-reservaciones?d1=flashSale-VISA-250716-logocall" target="_blank">
+            <a href="https://www.copaair.com/es/web/gs/centro-de-reservaciones?d1=flashSale-VISA-270716-logocall" target="_blank">
                 <img src="../../assets/images/logos/call-center.png" alt="Logo call" />
             </a>
         </div>
         <div id="ventas">
-            <a href="https://www.copaair.com/es/web/gs/oficinas-de-ventas?d1=flashSale-VISA-250716-logooffices" target="_blank">
+            <a href="https://www.copaair.com/es/web/gs/oficinas-de-ventas?d1=flashSale-VISA-270716-logooffices" target="_blank">
                 <img src="../../assets/images/logos/oficina-de-ventas.png" alt="Logo offices" />
             </a>
         </div>
 
         <div id="copacom">
-            <a href="https://www.copaair.com/?d1=flashSale-VISA-250716-cm" target="_blank">
+            <a href="https://www.copaair.com/?d1=flashSale-VISA-270716-cm" target="_blank">
                 <img src="../../assets/images/logos/copa.com.png" alt="Link to Copa Airlines Site" />
             </a>
         </div>
@@ -161,58 +158,38 @@
             <div id="contenido_lateral_der">
               <div>
                 <div id="canvas_booking">
-                    
-                         <div class="header">
-                    <img src="../../assets/images/tit_booking_ES.jpg" width="326" height="45"  alt=""/></div>
+                  <div class="header"> <img src="../../assets/images/tit_booking_ES.jpg" width="326" height="45"  alt=""/></div>
                   <div class="cWhite">
                     <div class="mc_campos_line">
                       <input name="radIdaVuelta" type="radio" id="radIdaVuelta" value="RT" checked="checked" />
                       Ida y vuelta&nbsp;&nbsp;
                       <input name="radIdaVuelta" type="radio" class="positioner_one" id="radIdaVuelta" value="OW" />
-                      Una Vía</div>
-                  </div>
+                      Una V&iacute;a</div>
+                    </div>
                     <div class="cBlue">
                       <div class="mc_campos_line">
-                        <select class="mc_field_1" id="DESDE" name="DESDE" v-model="from" required>
+                        <select class="mc_field_1" id="DESDE" name="DESDE">
                           <option value="0" selected>Desde</option>
-                          <option v-for="from in fromcities" value="{{from.id}}">{{from.name}}</option>
                         </select>
-
                         &nbsp;
-                        <select class="mc_field_1" id="HACIA" name="HACIA" v-model="to" required>
+                        <select class="mc_field_1" id="HACIA" name="HACIA">
                           <option value="0">Hacia</option>
-                          <option v-for="to in tocities" value="{{to.id}}">{{to.name}}</option>
                         </select>
-                        <p class="errorMsg" v-model="msg.lang.city_origin_null"></p>
                       </div>
                     </div>
                     <div class="cWhite">
-                        <div class="mc_campos_line">
-                            <input type="radio" value="Business" name="cabinClass" id="cabinClass" v-model="bussines" />
-                            Clase ejecutiva&nbsp;&nbsp;
-                            <input type="radio" checked="checked" value="Economy" name="cabinClass" id="cabinClass" v-model="economy" />
-                            Clase económica
-                        </div>
-                  </div>
+                      <div class="mc_campos_line">
+                        <input type="radio" class="" value="Business" name="cabinClass" id="cabinClass" />
+                        Clase ejecutiva&nbsp;&nbsp;
+                        <input type="radio" class="" checked="checked" value="Economy" name="cabinClass" id="cabinClass" />
+                        Clase econ&oacute;mica </div>
+                      </div>
                       <div class="cBlue">
-                        <div class="mc_campos_line"> 
-                            <span id="inputSalida"> Salida<br />
-                                <input 
-                                    name="from" 
-                                    class="mc_field_2 datepicker" 
-                                    id="from" 
-                                    size="15" 
-                                    v-model="departure_date" />
-                            </span>
-                            <span id="inputRegreso">Regreso<br />
-                                <input 
-                                    name="to" 
-                                    class="mc_field_2 datepicker" 
-                                    id="to" 
-                                    size="15" 
-                                    v-model="return_date"/>
-                            </span>
-                        </div>
+                        <div class="mc_campos_line"> <span id="inputSalida"> Salida<br />
+                          <input name="from" class="mc_field_2 datepicker" id="from" size="15" />
+                        </span><span id="inputRegreso">Regreso<br />
+                        <input name="to" class="mc_field_2 datepicker" id="to" size="15" />
+                      </span></div>
                     </div>
                     <div class="cWhite" style="display:none">
                       <div class="mc_campos_line">
@@ -220,67 +197,78 @@
                         Fechas exactas&nbsp;&nbsp;
                         <input type="radio" class="" value="true" name="fechas" id="fechas" checked="checked" />
                         Fechas flexibles </div>
-                  </div>
+                      </div>
                       <div class="cWhite">
                         <div class="mc_campos_line pasajeros">
                           <div id="adultPassengers" class="line_sub">
                             <div class="lbpas">Adultos<br />
                               (12+)</div>
-                              <select class="select" id="pasajeros" name="pasajeros" v-model="adults">
+                              <select class="select" id="pasajeros" name="pasajeros">
                                 <option value="1" selected="selected">1</option>
-                                <option value="{{i}}" v-for="i in [2, 3, 4, 5, 6, 7, 8]">{{i}}</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
                               </select>
-                          </div>
+                            </div>
                             <div id="pasajerosninos" class="line_sub">
                               <div class="lbpas">Ni&ntilde;os<br />
                                 (2 - 11)</div>
-                                <select class="select" id="cbpasajerosninos" name="cbpasajerosninos" v-model="childs">
+                                <select class="select" id="cbpasajerosninos" name="cbpasajerosninos">
                                   <option value="0" selected="selected">0</option>
-                                  <option value="{{i}}" v-for="i in [1, 2, 3, 4, 5, 6, 7, 8]">{{i}}</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
                                 </select>
-                          </div>
-                            <div id="infantesPasajeros" class="line_sub">
-                            <div class="lbpas">Infantes<br />
-                              (0 - 1)</div>
-                              <select class="select" id="cbinfantesPasajeros" name="cbinfantesPasajeros" v-model="infants">
-                                <option value="0" selected="selected">0</option>
-                                <option value="{{i}}" v-for="i in [1, 2, 3, 4, 5, 6, 7, 8]">{{i}}</option>
-                              </select>
-                            </div>
-                        </div>
-                  </div>                 
-                        <div class="cWhite">
-                            <div class="btnSubmit">
-                                <a v-on:click="showCoupon" v-if="couponLink">Tiene un código de descuento?</a>
-                                <div v-if="!couponLink">
-                                    <input 
-                                        name="coupon" 
-                                        id="coupon"
-                                        placeholder="Escriba su cupón..." 
-                                        v-model="coupon" 
-                                        v-on:keyup="validateCoupon()"/>
-                                    <p v-if="showError" class="errorMsg">Código inválido</p>
+                              </div>
+                              <div id="infantesPasajeros" class="line_sub">
+                                <div class="lbpas">Infantes<br />
+                                  (0 - 1)</div>
+                                  <select class="select" id="cbinfantesPasajeros" name="cbinfantesPasajeros">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                  </select>
                                 </div>
-                                <button class="btn btn-primary" id="btnSubmit">Buscar vuelo</button>
+                                <div class="limpiar"></div>
+                              </div>
                             </div>
+                            <div class="cWhite">
+                                <div class="btnSubmit">
+                                    <p class="errorMsg">Código inválido</p>
+                                    <input name="coupon" id="coupon" placeholder="Código promocional" />
+                                    <button id="btnSubmit" class="btn btn-primary">Buscar Vuelo</button>
+                                </div>
+                            </div>
+                              <div class="limpiar"></div>
+                            </div>
+                          </div> 
+
+                          <br />
+                          <br />
                         </div>
-            
-                </div>
-              </div> 
-
-                          <br />
-                          <br />
-        </div>
                       </div>
-
                       <div id="contenidopromo">
                         <em>
                           <p></p>
                           <table width="319" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="196" style="font-style: italic; font-size: 16px;">Compártalo con sus amigos</td>
-                              <td width="94"><a href="http://www.facebook.com/copaairlines?d1=flashSale-VISA-250716-fb" target="_blank">
-                                <img src="../../assets/images/rs_fb.jpg" width="32" height="35" border="0" /></a><a href="https://twitter.com/CopaAirlines?d1=flashSale-VISA-250716-tw" target="_blank"><img src="../../assets/images/rs_icon_tw.jpg" width="30" height="35" border="0" /></a></td>
+                              <td width="94"><a href="http://www.facebook.com/copaairlines?d1=flashSale-VISA-270716-fb" target="_blank">
+                                <img src="../../assets/images/rs_fb.jpg" width="32" height="35" border="0" /></a><a href="https://twitter.com/CopaAirlines?d1=flashSale-VISA-270716-tw" target="_blank"><img src="../../assets/images/rs_icon_tw.jpg" width="30" height="35" border="0" /></a></td>
                               </tr>
                             </table>
                           </em>
@@ -315,35 +303,30 @@
         </div>
     </div>      
 
-    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/jqueryui.js"></script>
-    <script src="../../node_modules/vue/dist/vue.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/external/jquery/jquery.min.js"></script> -->
-    <script src="../../assets/js/jquery.ui.datepicker-es.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script> -->
-    <script src="../../assets/js/s_code.js"></script>
-    <script src="../../assets/js/origenes_destinos_fechas_250716.js"></script>
-    <script src="../../assets/js/pcfunctions_260716.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+  <script src="../../assets/js/jquery.ui.datepicker-es.js"></script>
+  <script src="../../assets/js/jquery.history.js"></script>
+  <script src="../../assets/js/s_code.js"></script>
+  <script src="../../assets/js/jquery.countdown.js"></script>
+  <script src="../../assets/js/origenes_destinos_fechas_250716.js"></script>
+  <script src="../../assets/js/pcfunctions_270616.js"></script>
 
 
 
     <!--fin contendo-->
     <script language="javascript" type="text/javascript">
-       s.pageName = 'flashSale-VISA-250716-lp';
+       s.pageName = 'flashSale-VISA-270716-lp';
        s.channel = 'OfertasIrresistibles';
        s.server = 'www.copaair.com';
        s.prop20 = 'Spanish';
        if(!s.eVar24)
-        s.eVar24='flashSale-VISA-250716-lp';
+        s.eVar24='flashSale-VISA-270716-lp';
       var s_code = s.t();
       if (s_code) document.write(s_code);
     </script>
 
   </body>
 </html>
+
+
