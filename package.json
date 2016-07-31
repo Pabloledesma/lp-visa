@@ -2,11 +2,11 @@
   "name": "landing-page-copa-airlines",
   "version": "1.0.0",
   "description": "",
-  "main": "",
+  "main": "src/main.js",
   "scripts": {
     "predev": "grunt",
     "dev": "grunt watch",
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\"",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
@@ -26,14 +26,12 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "lite-server": "^2.2.0",
-    "rollup-plugin-buble": "^0.12.1",
     "typescript": "^1.8.10",
     "typings": "^1.0.4"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "flexboxgrid": "^6.3.0",
     "jquery": "^3.1.0",
-    "vue": "^1.0.26"
+    "systemjs": "^0.19.35"
   }
 }
