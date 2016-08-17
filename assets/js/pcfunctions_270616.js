@@ -2,15 +2,14 @@
 $(function() {
 
 	/*** Declaración de variables ***/
-
 	var lang = $("html").attr('lang'),
 		storeFront = '',
 		v_FROM = $("#DESDE").val(),
 		v_TO = $("#HACIA").val(),
 		v_FROMDATE = $("#from").val(),
+		v_TODATE =$("#to").val(),
 		v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked').val(),
 		v_codigoprom = $("#coupon").val(),
-		v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked').val(),
 		arr_elm = v_FROMDATE.split("/"),
 		v_diasalida = arr_elm[0],
 		v_messalida = arr_elm[1],
@@ -55,7 +54,7 @@ $(function() {
 
 		if (v_FROM == "" || v_FROM == undefined || v_FROM == 0) {
 
-		alertMessage(lang, );
+		alertMessage(lang, 'city_origin_null' );
 		
 		return false;
 	}
@@ -98,62 +97,49 @@ $(function() {
 
     function alertMessage( language, message ){
 
-    	switch( lang ){
+    	switch( language ){
 			case 'es':
-				alert( msj.es.city_origin_null );
+				alert( msj.es[message] );
 				break;
 			case 'en':
-				alert( msj.en.city_origin_null );
+				alert( msj.en[message] );
 				break;
 			case 'pt':
-				alert( msj.pt.city_origin_null );
+				alert( msj.en[message] );
 				break;
 		}
 
     }
-
-    if(v_radIdaVuelta == "RT"){
-		v_TODATE = $("#to").val();
-		if (v_TODATE == "" || v_TODATE == undefined) {
-			switch( lang ){
-			case 'es':
-				alert( msj.es.return_date );
-				break;
-			case 'en':
-				alert( msj.en.return_date );
-				break;
-			case 'pt':
-				alert( msj.pt.return_date );
-				break;
-		}
-			return false;
-		}
-	}else{
-		v_TODATE = "";	
-	}
-	
 	
 });
 
-function buscarVuelos( storeFront ) {
-			
-	
-	
+function buscarVuelos( 
+		d1,
+		storeFront,
+		v_codigoprom,
+		v_radIdaVuelta,
+		v_FROM,
+		v_TO,
+		v_diasalida,
+		v_messalida,
+		v_anosalida,
+		v_diaregreso,
+		v_mesregreso,
+		v_anoregreso,
+		v_fechas,
+		v_cabinClass,
+		v_pasajeros,
+		v_pasajerosninos,
+		v_infantesPasajeros ) 
+{
+				
+	// Valida ciudad de destino
 	if (v_TO == "" || v_TO == undefined || v_TO == 0) {
-		switch( lang ){
-			case 'es':
-				alert( msj.es.destination_city_null );
-				break;
-			case 'en':
-				alert( msj.en.destination_city_null );
-				break;
-			case 'pt':
-				alert( msj.pt.destination_city_null );
-				break;
-		}
+		alertMessage( language, 'destination_city_null' );
 		return false;
 	}
 	if(v_FROM == v_TO){
+
 		switch( lang ){
 			case 'es':
 				alert( msj.es.origin_destination );
@@ -182,6 +168,26 @@ function buscarVuelos( storeFront ) {
 				break;
 		}
 		return false;
+	}
+
+	if(v_radIdaVuelta == "RT"){
+		v_TODATE = $("#to").val();
+		if (v_TODATE == "" || v_TODATE == undefined) {
+			switch( lang ){
+			case 'es':
+				alert( msj.es.return_date );
+				break;
+			case 'en':
+				alert( msj.en.return_date );
+				break;
+			case 'pt':
+				alert( msj.pt.return_date );
+				break;
+		}
+			return false;
+		}
+	}else{
+		v_TODATE = "";	
 	}
 	
 	
