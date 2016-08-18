@@ -2,8 +2,8 @@
 $(function() {
 
 	/*** Declaración de variables ***/
-	var lang = $("html").attr('lang'),
-		storeFront = '',
+	
+	var	storeFront = '',
 		v_FROM = $("#DESDE").val(),
 		v_TO = $("#HACIA").val(),
 		v_FROMDATE = $("#from").val(),
@@ -39,26 +39,19 @@ $(function() {
 
 
 	$("#DESDE").on("change", function(){
-		var selected = $(this).val();
+		v_FROM = $(this).val();
+
 		$.each( sysCities.fromcities, function(index, value){
-			if( value.id == selected ){
-				selected = value.name.substr( value.name.length - 2, 2 );
+			if( value.id == v_FROM ){
+				v_FROM = value.name.substr( value.name.length - 2, 2 );
 			}
 		});
 		
-		if(selected != 'CO' && selected != 'BR' && selected != 'CA' && selected != 'US'){
+		if(v_FROM != 'CO' && v_FROM != 'BR' && v_FROM != 'CA' && v_FROM != 'US'){
 			storeFront = 'GS';
 		} else {
-			storeFront = selected;
+			storeFront = v_FROM;
 		}
-
-		if (v_FROM == "" || v_FROM == undefined || v_FROM == 0) {
-
-		alertMessage(lang, 'city_origin_null' );
-		
-		return false;
-	}
-
 	});
 
 	$("input:radio[name=radIdaVuelta]").change(function(){
@@ -94,10 +87,12 @@ $(function() {
             dates.not( this ).datepicker( "option", option, date );
         }
     });
+	
 
-    function alertMessage( language, message ){
 
-    	switch( language ){
+ function alertMessage( message ){
+ 	var lang = $("html").attr('lang');
+    	switch( lang ){
 			case 'es':
 				alert( msj.es[message] );
 				break;
@@ -110,8 +105,6 @@ $(function() {
 		}
 
     }
-	
-});
 
 function buscarVuelos( 
 		d1,
@@ -133,67 +126,41 @@ function buscarVuelos(
 		v_infantesPasajeros ) 
 {
 				
-	// Valida ciudad de destino
-	if (v_TO == "" || v_TO == undefined || v_TO == 0) {
-		alertMessage( language, 'destination_city_null' );
+	// Valida ciudad de origen
+	if (v_FROM === "" || v_FROM === undefined || v_FROM === 0) {
+		console.log(v_FROM);
+		alertMessage( 'city_origin_null' );
 		return false;
 	}
-	if(v_FROM == v_TO){
 
-		switch( lang ){
-			case 'es':
-				alert( msj.es.origin_destination );
-				break;
-			case 'en':
-				alert( msj.en.origin_destination );
-				break;
-			case 'pt':
-				alert( msj.pt.origin_destination );
-				break;
-		}
+	// Valida ciudad de destino
+	if (v_TO == "" || v_TO == undefined || v_TO == 0) {
+		alertMessage( 'destination_city_null' );
+		return false;
+	}
+
+	// El origen debe ser diferente del destino
+	if(v_FROM == v_TO){
+		alertMessage( 'origin_destination');
 		return false;
 	}
 	
 	
 	if (v_FROMDATE == "" || v_FROMDATE == undefined) {
-		switch( lang ){
-			case 'es':
-				alert( msj.es.departure_date );
-				break;
-			case 'en':
-				alert( msj.en.departure_date );
-				break;
-			case 'pt':
-				alert( msj.pt.departure_date );
-				break;
-		}
+		alertMessage( 'departure_date');
 		return false;
 	}
 
 	if(v_radIdaVuelta == "RT"){
 		v_TODATE = $("#to").val();
 		if (v_TODATE == "" || v_TODATE == undefined) {
-			switch( lang ){
-			case 'es':
-				alert( msj.es.return_date );
-				break;
-			case 'en':
-				alert( msj.en.return_date );
-				break;
-			case 'pt':
-				alert( msj.pt.return_date );
-				break;
-		}
+			alertMessage( 'return_date');
 			return false;
 		}
-	}else{
+	} else {
 		v_TODATE = "";	
 	}
-	
-	
 
-	
-	
 	goBooking(
 		d1,
 		storeFront,
@@ -249,12 +216,10 @@ function getCookie(cname) {
 	window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?d1="+track_medio+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+v_codigoprom+"&flexibleSearch="+v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CMGS&lang=en")
 }*/
 
-function goBooking(d1, storeFront, v_codigoprom,v_radIdaVuelta,v_FROM,v_TO,v_diasalida,v_messalida,v_anosalida,v_diaregreso,v_mesregreso,v_anoregreso,v_fechas,v_cabinClass,v_pasajeros,v_pasajerosninos,v_infantesPasajeros){
-	window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?d1="+d1+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+v_codigoprom+"&flexibleSearch="+v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CM"+storeFront+"&lang=es")
-}
+	function goBooking(d1, storeFront, v_codigoprom,v_radIdaVuelta,v_FROM,v_TO,v_diasalida,v_messalida,v_anosalida,v_diaregreso,v_mesregreso,v_anoregreso,v_fechas,v_cabinClass,v_pasajeros,v_pasajerosninos,v_infantesPasajeros){
+		window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?d1="+d1+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+v_codigoprom+"&flexibleSearch="+v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CM"+storeFront+"&lang=es")
+	}
 
-//programacion landing
-$(document).ready(function(){
 	function loadHtml(num) {
 		
 		$("#bt"+num).parent().addClass("active");
@@ -290,6 +255,6 @@ $(document).ready(function(){
         loadHtml(url);
         e.preventDefault();
     });
-		
+
 });
-		
+
