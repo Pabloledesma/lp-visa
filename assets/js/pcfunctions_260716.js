@@ -59,6 +59,7 @@ function buscarVuelos( storeFront ) {
 	
 	v_FROM = $("#DESDE").val();	
 	if (v_FROM == "" || v_FROM == undefined || v_FROM == 0) {
+		console.log('v_FROM: ' + v_FROM);
 		switch( lang ){
 			case 'es':
 				alert( msj.es.city_origin_null );
