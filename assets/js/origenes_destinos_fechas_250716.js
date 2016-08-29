@@ -61,12 +61,17 @@ var sysCities = {
 	        departure_date: "Selecione a partida",
 	        return_date: "Selecionar data de retorno"
 	  }
-	}
-},
+	},
 
-	departure_date = new Date(2016, 08 - 1, 01),
-	return_date = new Date(2016, 10 - 1, 31),
-	promoCodes = ['COPAVISA'];
+	departure_date: new Date(2016, 08 - 1, 01),
+	return_date: new Date(2016, 10 - 1, 31),
+	promoCodes: ['COPAVISA']
+
+};
+
+export sysCities;
+
+	
 
 
 
