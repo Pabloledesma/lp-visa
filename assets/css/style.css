@@ -57,8 +57,7 @@ body {
 #banner {
   width: 842px;
   height: 318px;
-  alignment-adjust: central;
-  margin: 0;
+  margin-bottom: 30px;
   background-repeat: no-repeat;
 }
 #contenidopromo {
