@@ -1,8 +1,10 @@
 // JavaScript Document
 $(function() {
+	$.each(sysCities.fromcities, function (index, value) {
+		$("#DESDE").append('<option value="'+value.id+'">'+value.name+'</option>');
+	});
 
 	var storeFront = '';
-	//Agrega eventos al selector
 	$("#DESDE").on("change", function(){
 		var selected = $(this).val();
 		$.each( sysCities.fromcities, function(index, value){
@@ -20,17 +22,27 @@ $(function() {
 	});
 
 	$("#btnSubmit").on('click', function(){
-		if( storeFront ){
-			buscarVuelos( storeFront );
-		} 
+		buscarVuelos( storeFront );
 	});
 
+	$.each(sysCities.tocities, function (index, value) {
+		$("#HACIA").append('<option value="'+value.id+'">'+value.name+'</option>');
+	});
+
+	
 	$.datepicker.setDefaults($.datepicker.regional['es']);
 	var dates = $( "#from, #to" ).datepicker({
 		dateFormat: 'dd/mm/yy',
+		regional: 'es',
 		numberOfMonths: 2,
+		//minDate: +1,
 		minDate: departure_date,
 		maxDate: return_date,
+/*		showOn: "both",
+		buttonImage: "images/iconcal.jpg",
+		buttonImageOnly: true,
+*/		
+
         onSelect: function( selectedDate ) {
             var option = this.id == "from" ? "minDate" : "maxDate",
                 instance = $( this ).data( "datepicker" ),
@@ -55,117 +67,36 @@ $(function() {
 	
 });
 function buscarVuelos( storeFront ) {
-	var lang = $("html").attr('lang');
-	
 	v_FROM = $("#DESDE").val();	
-	if (v_FROM == "" || v_FROM == undefined || v_FROM == 0) {
-		console.log('v_FROM: ' + v_FROM);
-		switch( lang ){
-			case 'es':
-				alert( msj.es.city_origin_null );
-				break;
-			case 'en':
-				alert( msj.en.city_origin_null );
-				break;
-			case 'pt':
-				alert( msj.pt.city_origin_null );
-				break;
-		}
-		
+	if (v_FROM == "" || v_FROM == undefined) {
+		alert("Seleccione la ciudad de origen");
 		return false;
 	}
 	v_TO = $("#HACIA").val();
 	if (v_TO == "" || v_TO == undefined || v_TO == 0) {
-		switch( lang ){
-			case 'es':
-				alert( msj.es.destination_city_null );
-				break;
-			case 'en':
-				alert( msj.en.destination_city_null );
-				break;
-			case 'pt':
-				alert( msj.pt.destination_city_null );
-				break;
-		}
+		alert("Seleccione la ciudad de destino");
 		return false;
 	}
 	if(v_FROM == v_TO){
-		switch( lang ){
-			case 'es':
-				alert( msj.es.origin_destination );
-				break;
-			case 'en':
-				alert( msj.en.origin_destination );
-				break;
-			case 'pt':
-				alert( msj.pt.origin_destination );
-				break;
-		}
+		alert("Seleccione una ciudad de destino diferente a la de origen");
 		return false;
 	}
 	
 	v_FROMDATE = $("#from").val();
 	if (v_FROMDATE == "" || v_FROMDATE == undefined) {
-		switch( lang ){
-			case 'es':
-				alert( msj.es.departure_date );
-				break;
-			case 'en':
-				alert( msj.en.departure_date );
-				break;
-			case 'pt':
-				alert( msj.pt.departure_date );
-				break;
-		}
+		alert("Seleccione su fecha de salida");
 		return false;
 	}
 	v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked').val();
 	if(v_radIdaVuelta == "RT"){
 		v_TODATE = $("#to").val();
 		if (v_TODATE == "" || v_TODATE == undefined) {
-			switch( lang ){
-			case 'es':
-				alert( msj.es.return_date );
-				break;
-			case 'en':
-				alert( msj.en.return_date );
-				break;
-			case 'pt':
-				alert( msj.pt.return_date );
-				break;
-		}
+			alert("Seleccione su fecha de regreso");
 			return false;
 		}
 	}else{
 		v_TODATE = "";	
 	}
-
-
-/*
-* Busca el nombre de una cookie y retorna su valor
-*
-* @cname  String  Nombre de la cookie
-***/
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length,c.length);
-        }
-    }
-    return "";
-}
-
-var d1 = getCookie("cname");
-if(d1 == ""){
-	d1 =  s.pageName;
-}
-
 	//track_medio = $("#d1").val();
 	v_codigoprom = $("#coupon").val();
 	v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked').val();
@@ -188,7 +119,7 @@ if(d1 == ""){
 	v_infantesPasajeros = $("#cbinfantesPasajeros").val();
 	
 	goBooking(
-		d1,
+		//track_medio,
 		storeFront,
 		v_codigoprom,
 		v_radIdaVuelta,
@@ -213,8 +144,8 @@ if(d1 == ""){
 	window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?d1="+track_medio+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+v_codigoprom+"&flexibleSearch="+v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CMGS&lang=en")
 }*/
 
-function goBooking(d1, storeFront, v_codigoprom,v_radIdaVuelta,v_FROM,v_TO,v_diasalida,v_messalida,v_anosalida,v_diaregreso,v_mesregreso,v_anoregreso,v_fechas,v_cabinClass,v_pasajeros,v_pasajerosninos,v_infantesPasajeros){
-	window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?d1="+d1+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+v_codigoprom+"&flexibleSearch="+v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CM"+storeFront+"&lang=es")
+function goBooking(storeFront, v_codigoprom,v_radIdaVuelta,v_FROM,v_TO,v_diasalida,v_messalida,v_anosalida,v_diaregreso,v_mesregreso,v_anoregreso,v_fechas,v_cabinClass,v_pasajeros,v_pasajerosninos,v_infantesPasajeros){
+	window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+v_codigoprom+"&flexibleSearch="+v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CM"+storeFront+"&lang=es")
 }
 
 //programacion landing
@@ -234,10 +165,9 @@ $(document).ready(function(){
     
     var firstTab = $("ul#tarifas li a").first().attr('href');
 
-    //no es compatible con jquery 2
-    // $.history.init(function(url) {
-    //     loadHtml(url == "" ? firstTab : url);
-    // });
+    $.history.init(function(url) {
+        loadHtml(url == "" ? firstTab : url);
+    });
 
     $('.jqload').on('click', function(e) {
 
@@ -255,51 +185,5 @@ $(document).ready(function(){
         e.preventDefault();
     });
 		
-});
-
-new Vue({
-    el: '#canvas_booking',
-    data: {
-        coupon: null,
-        showError: false,
-        couponLink: true,
-        lang: 'es',
-        from: 0,
-        to: 0,
-        departure_date: '',
-        return_date: '',
-        adults: 1,
-        childs: 0,
-        infants: 0,
-        business: false,
-        economy: true,
-        fromcities: sysCities.fromcities,
-        tocities: sysCities.tocities,
-        msg: sysCities.msg,
-        promoCodes: promoCodes
-    },
-
-    methods: {
-
-    	/*
-    	* El código promocional debe estar en minuscula, no se permiten caracteres especiales
-    	* y debe hacer match con uno de los códigos en el arreglo.
-    	*
-    	* @promoCodes -> Array: Arreglo de códigos promocionales
-    	* */
-        validateCoupon: function(){
-
-        	this.coupon = this.coupon.toUpperCase();
-            this.showError = this.promoCodes.indexOf( this.coupon ) !== -1 ;
-        },
-
-        showCoupon: function(){
-        	this.couponLink = !this.couponLink;
-        },
-
-        validateFields: function(){
-
-        }
-    }
 });
 		

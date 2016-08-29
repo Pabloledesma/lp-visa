@@ -83,6 +83,11 @@ body {
   color: #fff;
   text-align: center;
 }
+
+table.table > thead { background-color: #0d304f; color:#fff; } 
+.before { text-decoration:line-through; }
+
+
 #contenido_lateral_der {
   width: 330px;
   height: auto;
