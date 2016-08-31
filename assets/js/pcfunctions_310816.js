@@ -166,7 +166,31 @@ if(d1 === ""){
 ***/
 function alertMessage(msg){
 
-	var lang = $("html").attr('lang');
+	var lang = $("html").attr('lang'),
+		msj = {
+	      en: {
+	            city_origin_null: "Select a city of origin",    
+	            destination_city_null: "Select the destination city",
+	            origin_destination: "The destination city should be different from the city of origin",
+	            departure_date: "Select departure",
+	            return_date: "Select Return Date"
+	      	},
+	      es: {
+	            city_origin_null: "Seleccione la ciudad de origen",
+	            destination_city_null: "Seleccione la ciudad de destino",
+	            origin_destination: "La ciudad de destino debe ser diferente de la de origen",
+	            departure_date: "Seleccione la fecha de salida",
+	            return_date: "Seleccione la fecha de regreso"
+	      	},
+	      pt: {
+	            city_origin_null: "Selecione uma cidade de origem",
+	            destination_city_null: "Selecione a cidade de destino",
+	            origin_destination: "A cidade de destino deve ser diferente a partir da cidade de origem",
+	            departure_date: "Selecione a partida",
+	            return_date: "Selecionar data de retorno"
+	      	}
+		};
+
 
 	switch( lang ){
 		case 'es':
@@ -221,31 +245,29 @@ function goBooking(
 		v_pasajerosninos,
 		v_infantesPasajeros
 	){
-	var lang = $("html").attr('lang');
-	if(v_codigoprom){
-		window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?utm_campaign="+
+	var lang = $("html").attr('lang'),
+	    url = '';
+
+	url += "https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?utm_campaign="+
 			utm_campaign+"&d1="+d1+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+
 			v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+
 			v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+
 			v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+
 			v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+
-			v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&coupon="+
-			v_codigoprom+"&flexibleSearch="+
+			v_mesregreso+"&inboundOption.departureYear="+v_anoregreso;
+
+	if(v_codigoprom){
+		url += "&coupon=" + v_codigoprom;
+	}
+
+	url += "&flexibleSearch="+
 			v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+
 			v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+
 			v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+
-			v_infantesPasajeros+"&pos=CM"+storeFront+"&lang="+lang);
-	} else {
-		window.open("https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?utm_campaign="+
-			utm_campaign+"&d1="+d1+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+
-			v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+
-			v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+
-			v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+
-			v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+
-			v_mesregreso+"&inboundOption.departureYear="+v_anoregreso+"&flexibleSearch="+v_fechas+"&cabinClass="+
-			v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+
-			v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+v_infantesPasajeros+"&pos=CM"+storeFront+"&lang="+lang);
-	}
+			v_infantesPasajeros+"&pos=CM"+storeFront+"&lang="+lang;
+
+	window.open(url);
+	
 }
 
 //programacion landing
@@ -286,4 +308,4 @@ $(document).ready(function(){
     });
 		
 });
-		
+
