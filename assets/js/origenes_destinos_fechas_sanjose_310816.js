@@ -4,7 +4,6 @@ var sysCities = {
     ],
                         
     "tocities": [
-        {"name":"Asunci&oacute;n, PY","id": "ASU"},
         {"name":"Boston, US", "id":"BOS"},
         {"name":"Holguín, CU", "id":"HOG"},
         {"name":"Los Vegas, US", "id":"LAS"},
