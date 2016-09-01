@@ -18,6 +18,8 @@
   }
 }
 
+.sigin_link { font-style: italic; font-size: 16px; text-decoration: underline }
+
 a:link {
   color: #1563A8;
   text-decoration: none;
