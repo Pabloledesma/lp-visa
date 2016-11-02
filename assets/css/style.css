@@ -1,3 +1,4 @@
+h1, h2, h3, p { font-family: "Lato", sans-serif }
 #legales {
   width: 845px;
   height: auto;
@@ -97,12 +98,12 @@ table.bigText { font-size: 24px; }
   margin-left: 12px;
 }
 .mensajes p {
-  font-size: 18px;
-  text-align: center;
+  text-align: left;
 }
 .titulos_destacados {
   font-weight: bold;
-  color: #2a2a6c;
+  font-size: 1.2em;
+  color: #0d304f;
 }
 /******* FORM ********/
 #canvas_booking {
