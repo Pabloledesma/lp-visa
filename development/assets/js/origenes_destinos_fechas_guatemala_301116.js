@@ -1,10 +1,10 @@
 var sysCities = {
     "fromcities": [
-        {"name":"Guatemala, GT", "id":"GUA"}
+		{"name":"San José, CR", "id":"SJO"}
     ],
                         
     "tocities": [
-		{"name":"San José, CR", "id":"SJO"}
+        {"name":"Guatemala, GT", "id":"GUA"}
     ]
 },
 

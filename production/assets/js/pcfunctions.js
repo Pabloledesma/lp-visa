@@ -53,23 +53,24 @@ $(function() {
             dates.not( this ).datepicker( "option", option, date );
         }
     });
-	
-	$("input:radio[name=radIdaVuelta]").change(function(){
-		valIdaVuelta = $('input:radio[name=radIdaVuelta]:checked').val(); 
-		if(valIdaVuelta == "RT"){
-			$("#inputRegreso").show();
-		}else{
-			$("#inputRegreso").hide();
-		}
-		//$('#to').attr('disabled', 'true');
-		
-	});
 
 	var v_FROM = $("#DESDE"),	
 		v_TO = $("#HACIA"),
 		v_FROMDATE = $("#from"),
 		v_TODATE = $("#to"),
+		radioButtons = $("#radioButtons"),
 		v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked');
+
+	radioButtons.on('click', function(){
+		
+		v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked');
+
+		if( v_radIdaVuelta.val() == "RT"){
+			$("#inputRegreso").show();
+		}else{
+			$("#inputRegreso").hide();
+		}
+	});
 
 	$("#btnSubmit").on('click', function(){
 		buscarVuelos( storeFront, v_FROM, v_TO, v_FROMDATE, v_TODATE, v_radIdaVuelta );
@@ -99,13 +100,22 @@ function buscarVuelos( storeFront, v_FROM, v_TO, v_FROMDATE, v_TODATE, v_radIdaV
 	}
 	
 	if(v_radIdaVuelta.val() == "RT"){
+
+		arr_elm = v_TODATE.val().split("/");
+		v_diaregreso = arr_elm[0];
+		v_mesregreso = arr_elm[1];
+		v_anoregreso = arr_elm[2];
 	
 		if (v_TODATE.val() == "" || v_TODATE.val() == undefined) {
 			alertMessage('return_date');
 			return false;
 		}
-	}else{
-		v_TODATE = "";	
+
+	} else {
+		arr_elm = null;
+		v_diaregreso = null;
+		v_mesregreso = null;
+		v_anoregreso = null;
 	}
 
 var d1 = getCookie("cname"),
@@ -123,11 +133,6 @@ if(d1 === ""){
 	v_diasalida = arr_elm[0];
 	v_messalida = arr_elm[1];
 	v_anosalida = arr_elm[2];
-	
-	arr_elm = v_TODATE.val().split("/");
-	v_diaregreso = arr_elm[0];
-	v_mesregreso = arr_elm[1];
-	v_anoregreso = arr_elm[2];
 	
 	v_fechas = $('input:radio[name=fechas]:checked').val();
 	v_cabinClass = $('input:radio[name=cabinClass]:checked').val();
@@ -248,23 +253,32 @@ function goBooking(
 	var lang = $("html").attr('lang'),
 	    url = '';
 
-	url += "https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?utm_campaign="+
+
+		url += "https://bookings.copaair.com/CMGS/AirLowFareSearchExternal.do?utm_campaign="+
 			utm_campaign+"&d1="+d1+"&tripType="+v_radIdaVuelta+"&outboundOption.originLocationCode="+
 			v_FROM+"&outboundOption.destinationLocationCode="+v_TO+"&outboundOption.departureDay="+
 			v_diasalida+"&outboundOption.departureMonth="+v_messalida+"&outboundOption.departureYear="+
 			v_anosalida+"&inboundOption.destinationLocationCode="+v_FROM+"&inboundOption.originLocationCode="+
-			v_TO+"&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+
-			v_mesregreso+"&inboundOption.departureYear="+v_anoregreso;
+			v_TO;
 
-	if(v_codigoprom){
-		url += "&coupon=" + v_codigoprom;
-	}
+		if( v_radIdaVuelta == "RT" ){
+			url += "&inboundOption.departureDay="+v_diaregreso+"&inboundOption.departureMonth="+
+				v_mesregreso+"&inboundOption.departureYear="+v_anoregreso;
+		}
 
-	url += "&flexibleSearch="+
-			v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+
-			v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+
-			v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+
-			v_infantesPasajeros+"&pos=CM"+storeFront+"&lang="+lang;
+		if(v_codigoprom){
+			url += "&coupon=" + v_codigoprom;
+		}
+
+		url += "&flexibleSearch="+
+				v_fechas+"&cabinClass="+v_cabinClass+"&guestTypes[0].type=ADT&guestTypes[0].amount="+
+				v_pasajeros+"&guestTypes[1].type=CNN&guestTypes[1].amount="+
+				v_pasajerosninos+"&guestTypes[2].type=INF&guestTypes[2].amount="+
+				v_infantesPasajeros+"&pos=CM"+storeFront+"&lang="+lang;
+
+
+
+	
 
 	window.open(url);
 	

@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 
 //HTML
 gulp.task('html', function(){
-	gulp.src(source + '**/**/*.html')
+	gulp.src(source + '*.html')
 	.pipe(htmlmin({
 		collapseWhitespace: true,
 		minifyJS: true,
@@ -24,7 +24,7 @@ gulp.task('html', function(){
 
 //Javascript
 gulp.task('javascript', function(){
-	gulp.src(source + 'assets/js/*.js')
+	gulp.src(source + 'assets/js/**/*.js')
 	.pipe(minify())
 	.pipe(gulp.dest(dest + 'assets/js'));
 });
