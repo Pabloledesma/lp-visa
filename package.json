@@ -28,6 +28,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "gulp": "^3.9.1",
     "gulp-htmlmin": "^3.0.0",
+    "gulp-image": "^2.7.2",
     "gulp-minify": "0.0.14",
     "gulp-postcss": "^6.2.0",
     "gulp-util": "^3.0.7",
