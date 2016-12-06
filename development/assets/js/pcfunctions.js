@@ -1,7 +1,5 @@
 // JavaScript Document
 $(function() {
-
-	
 	
 	$.each(sysCities.fromcities, function (index, value) {
 		$("#DESDE").append('<option value="'+value.id+'">'+value.name+'</option>');
@@ -66,6 +64,7 @@ $(function() {
 		v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked');
 
 		if( v_radIdaVuelta.val() == "RT"){
+			console.log(v_radIdaVuelta.val());
 			$("#inputRegreso").show();
 		}else{
 			$("#inputRegreso").hide();
@@ -300,10 +299,11 @@ $(document).ready(function(){
     }
     
     var firstTab = $("ul#tarifas li a").first().attr('href');
-
-    $.history.init(function(url) {
-        loadHtml(url == "" ? firstTab : url);
-    });
+    
+    // Comentando esto, evitamos la carga del jquery.history!
+    // $.history.init(function(url) {
+    //     loadHtml(url == "" ? firstTab : url);
+    // });
 
     $('.jqload').on('click', function(e) {
 

@@ -1,1 +1,0 @@
-var sysCities={fromcities:[{name:"San José, CR",id:"SJO"}],tocities:[{name:"Managua, NI",id:"MGA"}]},departure_date=new Date(2016,11,10),return_date=new Date(2017,5,30);

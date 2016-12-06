@@ -1,4 +1,4 @@
-h1, h2, h3, p { font-family: "Lato", sans-serif }
+body, h1, h2, h3, p { font-family: "Lato", sans-serif }
 #legales {
   width: 845px;
   height: auto;
@@ -43,7 +43,6 @@ a:active {
 }
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #69737b;
 }
@@ -51,7 +50,6 @@ body {
   width: 845px;
   height: auto;
   margin: 0 auto;
-  font-family: Calibri, Helvetica, Arial;
   font-size: 14px;
   text-align: left;
   position: relative;
@@ -102,9 +100,11 @@ table.bigText { font-size: 24px; }
 }
 .titulos_destacados {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: #0d304f;
 }
+
+.copy_superior { color: #2a2a6c; font-size: 1.2em; }
 /******* FORM ********/
 #canvas_booking {
   height: auto;
@@ -151,10 +151,10 @@ table.bigText { font-size: 24px; }
 }
 #canvas_booking input.datepicker {
   width: 130px;
-  padding: 3px;
+  padding:3px;
   background-image: url('../images/iconcal.jpg');
   background-repeat: no-repeat;
-  background-position: right 0%;
+  background-position: right;
   border: 1px solid #999999;
 }
 #canvas_booking #inputSalida {
