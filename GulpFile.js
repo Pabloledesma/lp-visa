@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 
 //HTML
 gulp.task('html', function(){
-	gulp.src(source + 'usa/en/*.html')
+	gulp.src(source + '*.html')
 	.pipe(htmlmin({
 		collapseWhitespace: true,
 		minifyJS: true,

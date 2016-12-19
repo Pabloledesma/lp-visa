@@ -125,6 +125,15 @@ table.bigText { font-size: 24px; }
 #canvas_booking .header {
   height: 41px;
   width: 326px;
+  background-color: #005aa3;
+}
+
+#canvas_booking > .header > p { 
+  color: #fffcf6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size:19px;
 }
 #canvas_booking .cWhite {
   clear: both;
