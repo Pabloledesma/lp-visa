@@ -11,14 +11,14 @@ Vue.component('content-component',{
                     <tr>
                         <th>Origen</th>
                         <th>Destino</th>
-                        <th>Precio</th>
+                        <th>Precio (US)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="tarifa in tarifas">
                         <td>{{tarifa.origen}}</td>
                         <td>{{tarifa.destino}}</td>
-                        <td>{{tarifa.precio}}</td>
+                        <td>$ {{ tarifa.precio }}*</td>
                     </tr>
                 </tbody>
             </table>
@@ -27,10 +27,13 @@ Vue.component('content-component',{
         `,
         data: function(){
             return {
-                tarifas: info.tarifas,
-                copy_superior: info.copy_superior
+                tarifas: sysCities.tarifas,
+                copy_superior: sysCities.copy_superior
+                
             }
         }
+
+        
         
 })
 
@@ -139,5 +142,9 @@ Vue.component('content-component',{
 
 
 new Vue({
-	el: '#cuerpo'
+	el: '#app',
+
+    data: {
+        tyc: sysCities.tyc
+    }
 })

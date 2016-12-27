@@ -1,4 +1,4 @@
-var info = {
+var sysCities = {
     fromcities: [
         {"name":"Seleccione", "id":"0"},
         {"name":"Medellín, CO", "id":"MDE"},
@@ -55,11 +55,12 @@ var info = {
             origen: 'PTY'
         },
     ],
+    tyc: 'http://testing.copaair.com'
+},
 
-    departure_date: new Date(2017, 1 - 1, 25),
+    departure_date = new Date(2017, 1 - 1, 25),
 
-	return_date: new Date(2017, 3 - 1, 23)
-}
+    return_date = new Date(2017, 3 - 1, 23);
 
 
 

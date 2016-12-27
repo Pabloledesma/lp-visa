@@ -1,6 +1,6 @@
 "use strict";
 
-var info = {
+var sysCities = {
     fromcities: [{ "name": "Seleccione", "id": "0" }, { "name": "Medellín, CO", "id": "MDE" }, { "name": "Cali, CO", "id": "CLO" }, { "name": "Bogotá, CO", "id": "BGO" }, { "name": "Barranquilla, CO", "id": "BAQ" }],
 
     tocities: [{ "name": "Seleccione", "id": "0" }, { "name": "Aruba, AW", "id": "AUA" }, { "name": "Panamá, PA", "id": "PTY" }, { "name": "Lima, PE", "id": "LIM" }, { "name": "Miami, US", "id": "MIA" }, { "name": "Tampa, US", "id": "TPA" }, { "name": "San José, CR", "id": "SJO" }, { "name": "San Juan, PR", "id": "SJU" }],
@@ -34,8 +34,7 @@ var info = {
         destino: 'MCO',
         origen: 'PTY'
     }],
-
-    departure_date: new Date(2017, 1 - 1, 25),
-
-    return_date: new Date(2017, 3 - 1, 23)
-};
+    tyc: 'http://testing.copaair.com'
+},
+    departure_date = new Date(2017, 1 - 1, 25),
+    return_date = new Date(2017, 3 - 1, 23);

@@ -1,11 +1,12 @@
 'use strict';
 
 Vue.component('content-component', {
-    template: '\n          <div id="contenido_tarifas">\n            <h3 class="titulos_destacados">{{ copy_superior.titulo }}</h3>\n            <div class="mensajes">\n                <p>{{copy_superior.cuerpo}}</p>\n            </div>\n            \n            <table class="table is-stripped">\n                <thead>\n                    <tr>\n                        <th>Origen</th>\n                        <th>Destino</th>\n                        <th>Precio</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr v-for="tarifa in tarifas">\n                        <td>{{tarifa.origen}}</td>\n                        <td>{{tarifa.destino}}</td>\n                        <td>{{tarifa.precio}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        \n    </div>  \n        ',
+    template: '\n          <div id="contenido_tarifas">\n            <h3 class="titulos_destacados">{{ copy_superior.titulo }}</h3>\n            <div class="mensajes">\n                <p>{{copy_superior.cuerpo}}</p>\n            </div>\n            \n            <table class="table is-stripped">\n                <thead>\n                    <tr>\n                        <th>Origen</th>\n                        <th>Destino</th>\n                        <th>Precio (US)</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr v-for="tarifa in tarifas">\n                        <td>{{tarifa.origen}}</td>\n                        <td>{{tarifa.destino}}</td>\n                        <td>$ {{ tarifa.precio }}*</td>\n                    </tr>\n                </tbody>\n            </table>\n        \n    </div>  \n        ',
     data: function data() {
         return {
-            tarifas: info.tarifas,
-            copy_superior: info.copy_superior
+            tarifas: sysCities.tarifas,
+            copy_superior: sysCities.copy_superior
+
         };
     }
 
@@ -116,5 +117,9 @@ Vue.component('content-component', {
 
 
 new Vue({
-    el: '#cuerpo'
+    el: '#app',
+
+    data: {
+        tyc: sysCities.tyc
+    }
 });

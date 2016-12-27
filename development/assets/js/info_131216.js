@@ -24,6 +24,6 @@ var sysCities = {
     ]
 },
 
-	departure_date = new Date(2017, 1 - 1, 15),
+	departure_date = new Date(2017, 3 - 1, 1),
 	return_date = new Date(2017, 4 - 1, 30);
 
