@@ -64,7 +64,6 @@ $(function() {
 		v_radIdaVuelta = $('input:radio[name=radIdaVuelta]:checked');
 
 		if( v_radIdaVuelta.val() == "RT"){
-			console.log(v_radIdaVuelta.val());
 			$("#inputRegreso").show();
 		}else{
 			$("#inputRegreso").hide();

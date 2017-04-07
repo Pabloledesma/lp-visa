@@ -1,6 +1,6 @@
 var sysCities = {
     "fromcities": [
-        {"name":"Guatemala, GT", "id":"GUA"}
+        {"name":"Managua, NI", "id":"MGA"}
     ],
                         
     "tocities": [
@@ -8,6 +8,6 @@ var sysCities = {
     ]
 },
 
-	departure_date = new Date(2016, 12 - 1, 10),
-	return_date = new Date(2017, 6 - 1, 30);
+	departure_date = new Date(2017, 4 - 1, 7),
+	return_date = new Date(2017, 7 - 1, 31);
 

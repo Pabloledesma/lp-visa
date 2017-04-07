@@ -1,4 +1,3 @@
-body, h1, h2, h3, p { font-family: "Lato", sans-serif }
 #legales {
   width: 845px;
   height: auto;
@@ -18,8 +17,6 @@ body, h1, h2, h3, p { font-family: "Lato", sans-serif }
     top: 0 !important;
   }
 }
-
-.sigin_link { font-style: italic; font-size: 16px; text-decoration: underline }
 
 a:link {
   color: #1563A8;
@@ -43,6 +40,7 @@ a:active {
 }
 body {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #69737b;
 }
@@ -50,6 +48,7 @@ body {
   width: 845px;
   height: auto;
   margin: 0 auto;
+  font-family: Calibri, Helvetica, Arial;
   font-size: 14px;
   text-align: left;
   position: relative;
@@ -58,7 +57,8 @@ body {
 #banner {
   width: 842px;
   height: 318px;
-  margin-bottom: 30px;
+  alignment-adjust: central;
+  margin: 5px 0 0;
   background-repeat: no-repeat;
 }
 #contenidopromo {
@@ -83,12 +83,6 @@ body {
   color: #fff;
   text-align: center;
 }
-
-table.table > thead { background-color: #0d304f; color:#fff; } 
-.before { text-decoration:line-through; }
-
-table.bigText { font-size: 24px; }
-
 #contenido_lateral_der {
   width: 330px;
   height: auto;
@@ -96,15 +90,14 @@ table.bigText { font-size: 24px; }
   margin-left: 12px;
 }
 .mensajes p {
-  text-align: left;
+  font-size: 18px;
+  text-align: center;
 }
 .titulos_destacados {
   font-weight: bold;
-  font-size: 1.4em;
-  color: #0d304f;
+  font-size: 17px;
+  color: #005ca7;
 }
-
-.copy_superior { color: #2a2a6c; font-size: 1.2em; }
 /******* FORM ********/
 #canvas_booking {
   height: auto;
@@ -125,15 +118,6 @@ table.bigText { font-size: 24px; }
 #canvas_booking .header {
   height: 41px;
   width: 326px;
-  background-color: #005aa3;
-}
-
-#canvas_booking > .header > p { 
-  color: #fffcf6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size:19px;
 }
 #canvas_booking .cWhite {
   clear: both;
@@ -160,10 +144,10 @@ table.bigText { font-size: 24px; }
 }
 #canvas_booking input.datepicker {
   width: 130px;
-  padding:3px;
+  padding: 3px;
   background-image: url('../images/iconcal.jpg');
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: right 0%;
   border: 1px solid #999999;
 }
 #canvas_booking #inputSalida {
@@ -268,11 +252,11 @@ select {
 .tab_content .colmenu .tit_origem {
   background-color: #1d3189;
   font-size: 16px;
-  width: 102px;
+  width: 104px;
   color: #FFF;
   height: 46px;
   line-height: 46px;
-  text-align:center;
+  text-indent: 18px;
 }
 .tab_content .colmenu ul {
   margin: 0;
